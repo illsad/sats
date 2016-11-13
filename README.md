@@ -1,2 +1,2 @@
-# SATS cihuy
+# SATS 
 Sistem Absensi Terintergrasi Sekolah

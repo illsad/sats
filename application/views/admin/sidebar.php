@@ -10,6 +10,13 @@
                 </ul>
             </li>
 
+            <li><a><i class="fa fa-institution"></i> Kelas <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?php echo site_url('admin/classes') ?>">Daftar Kelas</a>
+                    </li>
+                </ul>
+            </li>
+
             <li><a><i class="fa fa-newspaper-o"></i> Posting <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/posts') ?>">Daftar Posting</a>

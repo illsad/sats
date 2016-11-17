@@ -151,6 +151,23 @@ CREATE  TABLE IF NOT EXISTS `posts` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `classes`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `classes` (
+  `class_id` INT NOT NULL AUTO_INCREMENT ,
+  `class_level` ENUM('X', 'XI', 'XII') NULL ,
+  `class_name` VARCHAR(45) NULL ,
+  `teacher_name` VARCHAR(255) NULL ,
+  `class_years` VARCHAR(45) NULL ,
+  `class_is_deleted` TINYINT(1) NULL DEFAULT 0 ,
+  `user_user_id` INT NULL ,
+  `class_input_date` TIMESTAMP NULL ,
+  `class_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`class_id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

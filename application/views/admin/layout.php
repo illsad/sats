@@ -37,7 +37,7 @@
               <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
               <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
-        
+
         <script type="text/javascript">
             var BASEURL = '<?php echo base_url() ?>';
         </script>
@@ -46,12 +46,8 @@
 
 
     <body class="nav-md">
-
         <div class="container body">
-
-
             <div class="main_container">
-
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
 
@@ -59,7 +55,6 @@
                             <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>SYSCMS</span></a>
                         </div>
                         <div class="clearfix"></div>
-
                         <br />
 
                         <?php $this->load->view('admin/sidebar') ?>
@@ -87,16 +82,16 @@
 
                 <!-- top navigation -->
                 <div class="top_nav">
-                        <?php
-                        if ($this->session->flashdata('success')) {
-                            $data['message'] = $this->session->flashdata('success');
-                            $this->load->view('admin/notification_success', $data);
-                        }
-                        if ($this->session->flashdata('failed')) {
-                            $data['message'] = $this->session->flashdata('failed');
-                            $this->load->view('admin/notification_failed', $data);
-                        }
-                        ?>
+                    <?php
+                    if ($this->session->flashdata('success')) {
+                        $data['message'] = $this->session->flashdata('success');
+                        $this->load->view('admin/notification_success', $data);
+                    }
+                    if ($this->session->flashdata('failed')) {
+                        $data['message'] = $this->session->flashdata('failed');
+                        $this->load->view('admin/notification_failed', $data);
+                    }
+                    ?>
 
                     <div class="nav_menu">
                         <nav class="" role="navigation">
@@ -128,78 +123,6 @@
                             </ul>
                             </li>
 
-                            <li role="presentation" class="dropdown">
-                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <span class="badge bg-green">6</span>
-                                </a>
-                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
-                                    <li>
-                                        <a>
-                                            <span class="image">
-                                                <img src="<?php echo media_url() ?>/images/user.png" alt="Profile Image" />
-                                            </span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where... 
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image">
-                                                <img src="<?php echo media_url() ?>/images/user.png" alt="Profile Image" />
-                                            </span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where... 
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image">
-                                                <img src="<?php echo media_url() ?>/images/user.png" alt="Profile Image" />
-                                            </span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where... 
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image">
-                                                <img src="<?php echo media_url() ?>/images/user.png" alt="Profile Image" />
-                                            </span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where... 
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="text-center">
-                                            <a>
-                                                <strong>See All Alerts</strong>
-                                                <i class="fa fa-angle-right"></i>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
 
                             </ul>
                         </nav>

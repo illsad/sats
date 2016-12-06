@@ -1,5 +1,4 @@
 <?php
-$this->load->view('admin/tinymce_init');
 if (isset($user)) {
     $id = $user['user_id'];
     $inputNameValue = $user['user_name'];

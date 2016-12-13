@@ -8,7 +8,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>SYSCMS <?php echo isset($title) ? ' | ' . $title : null; ?></title>
+        <title>SATS WIRABUANA <?php echo isset($title) ? ' | ' . $title : null; ?></title>
         <link rel="icon" href="<?php echo media_url('ico/favicon.jpg'); ?>" type="image/x-icon">
 
         <!-- Bootstrap core CSS -->
@@ -52,7 +52,7 @@
                     <div class="left_col scroll-view">
 
                         <div class="navbar nav_title" style="border: 0;">
-                            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>SYSCMS</span></a>
+                            <a href="<?php echo site_url ('index.php')?>" class="site_title"><i class="fa fa-paw"></i> <span>SATS</span></a>
                         </div>
                         <div class="clearfix"></div>
                         <br />
@@ -140,7 +140,7 @@
                         <!-- footer content -->
                         <footer class="bottom">
                             <div class="">
-                                <p class="pull-right">© 2015 SYSCMS-APP By Sistiandy
+                                <p class="pull-right">© 2016 Ilfan Said
                                 </p>
                             </div>
                             <div class="clearfix"></div>

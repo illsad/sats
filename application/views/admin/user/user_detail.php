@@ -1,15 +1,18 @@
-<div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
-    <div class="x_panel post-inherit">
-        <div class="col-md-12 main">
-            <h3>
-                Detail Pengguna
-                <span class=" pull-right">
-                    <a href="<?php echo site_url('admin/user') ?>" class="btn btn-info btn-sm"><span class="fa fa-arrow-left"></span>&nbsp; Kembali</a> 
-                    <a href="<?php echo site_url('admin/user/edit/' . $user['user_id']) ?>" class="btn btn-success btn-sm"><span class="fa fa-edit"></span>&nbsp; Edit</a> 
-                </span>
-            </h3><br>
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+        <div class="x_title">
+        <h2><i class="fa fa-book"></i> Detail Pengguna</h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li><a href="<?php echo site_url('admin/user') ?>" class="btn btn-info btn-sm"><span class="fa fa-arrow-left"></span>&nbsp; Kembali</a>
+                </li>
+                <li><a href="<?php echo site_url('admin/user/edit/' . $user['user_id']) ?>" class="btn btn-success btn-sm"><span class="fa fa-edit"></span>&nbsp; Edit</a>
+                </li>
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
         </div>
-        <div class="col-md-12">
+        <div class="x_content">
             <table class="table table-striped">
                 <tbody>
                     <tr>

@@ -3,14 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-/**
- * Classes controllers teacher
- *
- * @package     SYSCMS
- * @subpackage  Controllers
- * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
- */
+
 class Teachers extends CI_Controller {
 
     public function __construct() {

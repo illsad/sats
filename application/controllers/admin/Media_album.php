@@ -3,14 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-/**
- * Media album controllers class
- *
- * @package     SYSCMS
- * @subpackage  Controllers
- * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
- */
+
 ini_set('display_errors', true);
 
 class Media_album extends CI_Controller {

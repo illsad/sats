@@ -1,7 +1,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
         <div class="x_title">
-        <h2><i class="fa fa-book"></i> Detail Pengguna</h2>
+            <h2><i class="fa fa-book"></i> Detail Pengguna</h2>
             <ul class="nav navbar-right panel_toolbox">
                 <li><a href="<?php echo site_url('admin/user') ?>" class="btn btn-info btn-sm"><span class="fa fa-arrow-left"></span>&nbsp; Kembali</a>
                 </li>

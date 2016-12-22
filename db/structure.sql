@@ -161,10 +161,80 @@ CREATE  TABLE IF NOT EXISTS `classes` (
   `teacher_name` VARCHAR(255) NULL ,
   `class_years` VARCHAR(45) NULL ,
   `class_is_deleted` TINYINT(1) NULL DEFAULT 0 ,
-  `user_user_id` INT NULL ,
+  `user_user_id` INT(11) NULL ,
   `class_input_date` TIMESTAMP NULL ,
   `class_last_update` TIMESTAMP NULL ,
-  PRIMARY KEY (`class_id`) )
+  PRIMARY KEY (`class_id`) ,
+  INDEX `fk_classes_user1_idx` (`user_user_id` ASC) ,
+  CONSTRAINT `fk_classes_user1`
+    FOREIGN KEY (`user_user_id` )
+    REFERENCES `user` (`user_id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `teachers`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `teachers` (
+  `teacher_id` INT NOT NULL ,
+  `teacher_nip` VARCHAR(20) NULL ,
+  `teacher_name` VARCHAR(255) NULL ,
+  `teacher_input_date` TIMESTAMP NULL ,
+  `teacher_last_update` TIMESTAMP NULL ,
+  `user_user_id` INT(11) NULL ,
+  PRIMARY KEY (`teacher_id`) ,
+  INDEX `fk_teachers_user1_idx` (`user_user_id` ASC) ,
+  CONSTRAINT `fk_teachers_user1`
+    FOREIGN KEY (`user_user_id` )
+    REFERENCES `user` (`user_id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `present`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `present` (
+  `present_id` INT NOT NULL AUTO_INCREMENT ,
+  `present_year` YEAR NULL ,
+  `present_month` INT NULL ,
+  `present_date` DATE NULL ,
+  `present_type` VARCHAR(45) NULL ,
+  `present_description` TEXT NULL ,
+  `user_user_id` INT(11) NULL ,
+  PRIMARY KEY (`present_id`) ,
+  INDEX `fk_present_user1_idx` (`user_user_id` ASC) ,
+  CONSTRAINT `fk_present_user1`
+    FOREIGN KEY (`user_user_id` )
+    REFERENCES `user` (`user_id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `students`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `students` (
+  `student_id` INT NOT NULL AUTO_INCREMENT ,
+  `student_nip` VARCHAR(45) NULL ,
+  `student_full_name` VARCHAR(255) NULL ,
+  `student_phone` DECIMAL(10,0) NULL ,
+  `student_is_resign` TINYINT(1) NULL DEFAULT 0 ,
+  `classes_class_id` INT NULL ,
+  `student_is_deleted` TINYINT(1) NULL ,
+  `student_input_date` TIMESTAMP NULL ,
+  `student_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`student_id`) ,
+  INDEX `fk_students_classes1_idx` (`classes_class_id` ASC) ,
+  CONSTRAINT `fk_students_classes1`
+    FOREIGN KEY (`classes_class_id` )
+    REFERENCES `classes` (`class_id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 

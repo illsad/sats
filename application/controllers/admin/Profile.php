@@ -3,14 +3,6 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-/**
- * User controllers class
- *
- * @package     SYSCMS
- * @subpackage  Controllers
- * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
- */
 class Profile extends CI_Controller {
 
     public function __construct() {

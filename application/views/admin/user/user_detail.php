@@ -3,9 +3,9 @@
         <div class="x_title">
             <h2><i class="fa fa-book"></i> Detail Pengguna</h2>
             <ul class="nav navbar-right panel_toolbox">
-                <li><a href="<?php echo site_url('admin/user') ?>" class="btn btn-info btn-sm"><span class="fa fa-arrow-left"></span>&nbsp; Kembali</a>
+                <li><a class="btn btn-info" href="<?php echo site_url('admin/user') ?>"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</a>
                 </li>
-                <li><a href="<?php echo site_url('admin/user/edit/' . $user['user_id']) ?>" class="btn btn-success btn-sm"><span class="fa fa-edit"></span>&nbsp; Edit</a>
+                <li><a class="btn btn-success" href="<?php echo site_url('admin/user/edit/' . $user['user_id']) ?>"><i class="fa fa-edit"></i>&nbsp; Edit</a>
                 </li>
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>

@@ -152,21 +152,19 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `classes`
+-- Table `teachers`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `classes` (
-  `class_id` INT NOT NULL AUTO_INCREMENT ,
-  `class_level` ENUM('X', 'XI', 'XII') NULL ,
-  `class_name` VARCHAR(45) NULL ,
+CREATE  TABLE IF NOT EXISTS `teachers` (
+  `teacher_id` INT NOT NULL AUTO_INCREMENT ,
+  `teacher_nip` VARCHAR(20) NULL ,
   `teacher_name` VARCHAR(255) NULL ,
-  `class_years` VARCHAR(45) NULL ,
-  `class_is_deleted` TINYINT(1) NULL DEFAULT 0 ,
+  `teacher_input_date` TIMESTAMP NULL ,
+  `teacher_last_update` TIMESTAMP NULL ,
+  `teacher_is_deleted` TINYINT(1) NULL DEFAULT 0 ,
   `user_user_id` INT(11) NULL ,
-  `class_input_date` TIMESTAMP NULL ,
-  `class_last_update` TIMESTAMP NULL ,
-  PRIMARY KEY (`class_id`) ,
-  INDEX `fk_classes_user1_idx` (`user_user_id` ASC) ,
-  CONSTRAINT `fk_classes_user1`
+  PRIMARY KEY (`teacher_id`) ,
+  INDEX `fk_teachers_user1_idx` (`user_user_id` ASC) ,
+  CONSTRAINT `fk_teachers_user1`
     FOREIGN KEY (`user_user_id` )
     REFERENCES `user` (`user_id` )
     ON DELETE NO ACTION
@@ -175,20 +173,29 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `teachers`
+-- Table `classes`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `teachers` (
-  `teacher_id` INT NOT NULL ,
-  `teacher_nip` VARCHAR(20) NULL ,
-  `teacher_name` VARCHAR(255) NULL ,
-  `teacher_input_date` TIMESTAMP NULL ,
-  `teacher_last_update` TIMESTAMP NULL ,
+CREATE  TABLE IF NOT EXISTS `classes` (
+  `class_id` INT NOT NULL AUTO_INCREMENT ,
+  `class_level` ENUM('X', 'XI', 'XII') NULL ,
+  `class_name` VARCHAR(45) NULL ,
+  `class_years` VARCHAR(45) NULL ,
+  `class_is_deleted` TINYINT(1) NULL DEFAULT 0 ,
   `user_user_id` INT(11) NULL ,
-  PRIMARY KEY (`teacher_id`) ,
-  INDEX `fk_teachers_user1_idx` (`user_user_id` ASC) ,
-  CONSTRAINT `fk_teachers_user1`
+  `teachers_teacher_id` INT NULL ,
+  `class_input_date` TIMESTAMP NULL ,
+  `class_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`class_id`) ,
+  INDEX `fk_classes_user1_idx` (`user_user_id` ASC) ,
+  INDEX `fk_classes_teachers1_idx` (`teachers_teacher_id` ASC) ,
+  CONSTRAINT `fk_classes_user1`
     FOREIGN KEY (`user_user_id` )
     REFERENCES `user` (`user_id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_classes_teachers1`
+    FOREIGN KEY (`teachers_teacher_id` )
+    REFERENCES `teachers` (`teacher_id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

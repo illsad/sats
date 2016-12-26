@@ -166,6 +166,34 @@ class User extends CI_Controller {
         }
     }
 
+    public function ajax_list() {
+        $keys = $this->User_model->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($keys as $key) {
+            $no++;
+            $row = array();
+            $row[] = $key->user_name;
+            $row[] = $key->user_full_name;
+            $row[] = $key->user_email;
+            $row[] = $key->role_name;
+
+            //add html for action
+            $row[] = '<a class="btn btn-warning btn-xs" href="'.site_url().'admin/user/detail/'.$key->user_id.'" ><span class="glyphicon glyphicon-eye-open"></span></a><a class="btn btn-success btn-xs" href="'.site_url().'admin/user/edit/'.$key->user_id.'" ><span class="glyphicon glyphicon-edit"></span></a>' ;
+
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->User_model->count_all(),
+            "recordsFiltered" => $this->User_model->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
+    }
+
 }
 
 /* End of file user.php */

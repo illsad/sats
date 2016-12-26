@@ -109,6 +109,32 @@ class Teachers extends CI_Controller {
         }
     }
 
+    public function ajax_list() {
+        $keys = $this->Teachers_model->get_datatables();
+        $data = array();
+        $no = $_POST['start'];
+        foreach ($keys as $key) {
+            $no++;
+            $row = array();
+            $row[] = $key->teacher_nip;
+            $row[] = $key->teacher_nip;
+
+            //add html for action
+            $row[] = '<a class="btn btn-warning btn-xs" href="'.site_url().'admin/teachers/detail/'.$key->teacher_id.'" ><span class="glyphicon glyphicon-eye-open"></span></a><a class="btn btn-success btn-xs" href="'.site_url().'admin/teachers/edit/'.$key->teacher_id.'" ><span class="glyphicon glyphicon-edit"></span></a>' ;
+
+            $data[] = $row;
+        }
+
+        $output = array(
+            "draw" => $_POST['draw'],
+            "recordsTotal" => $this->Teachers_model->count_all(),
+            "recordsFiltered" => $this->Teachers_model->count_filtered(),
+            "data" => $data,
+        );
+        //output to json format
+        echo json_encode($output);
+    }
+
 }
 
 /* End of file teachers.php */

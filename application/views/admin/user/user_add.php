@@ -14,16 +14,15 @@ if (isset($user)) {
   $inputDescValue = set_value('user_description');
 }
 ?>
-<?php echo validation_errors(); ?>
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
-      <h2><i class="fa fa-plus-circle"></i> <?php echo $operation ?> Pengguna</h2>
+      <h2><i class="fa fa-list"></i> <?php echo $operation ?> Pengguna</h2>
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
       <!-- /.col-lg-12 -->
-
+      <?php echo validation_errors(); ?>
       <?php echo form_open_multipart(current_url()); ?>
       <div class="col-md-12">
         <div class="col-sm-12 col-md-9">
@@ -87,36 +86,29 @@ if (isset($user)) {
             <?php echo form_close(); ?>
           </div>
         </div>
+      </div>
 
-        <?php if (isset($user)): ?>
-          <!-- Delete Confirmation -->
-          <div class="modal fade" id="confirm-del">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title"><b>Konfirmasi Penghapusan</b></h4>
-                </div>
-                <div class="modal-body">
-                  <p>Data yang dipilih akan dihapus oleh sistem, apakah anda yakin?;</p>
-                </div>
-                <?php echo form_open('admin/user/delete/' . $user['user_id']); ?>
-                <div class="modal-footer">
-                  <a><button style="float: right;margin-left: 10px" type="button" class="btn btn-default" data-dismiss="modal">Tidak</button></a>
-                  <input type="hidden" name="del_id" value="<?php echo $user['user_id'] ?>" />
-                  <input type="hidden" name="del_name" value="<?php echo $user['user_name'] ?>" />
-                  <button type="submit" class="btn btn-primary">Ya</button>
-                </div>
-                <?php echo form_close(); ?>
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
-          <?php if ($this->session->flashdata('delete')) { ?>
-            <script type = "text/javascript">
-            $(window).load(function() {
-              $('#confirm-del').modal('show');
-            });
-            </script>
-            <?php }
-            ?>
-          <?php endif; ?>
+      <?php if (isset($user)): ?>
+        <!-- Delete Confirmation -->
+        <div class="modal fade" id="confirm-del">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title"><b>Konfirmasi Penghapusan</b></h4>
+              </div>
+              <div class="modal-body">
+                <p>Data yang dipilih akan dihapus oleh sistem, apakah anda yakin?;</p>
+              </div>
+              <?php echo form_open('admin/user/delete/' . $user['user_id']); ?>
+              <div class="modal-footer">
+                <a><button style="float: right;margin-left: 10px" type="button" class="btn btn-default" data-dismiss="modal">Tidak</button></a>
+                <input type="hidden" name="del_id" value="<?php echo $user['user_id'] ?>" />
+                <input type="hidden" name="del_name" value="<?php echo $user['user_name'] ?>" />
+                <button type="submit" class="btn btn-primary">Ya</button>
+              </div>
+              <?php echo form_close(); ?>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+      <?php endif ?>

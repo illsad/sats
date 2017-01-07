@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 exit('No direct script access allowed');
 
 /**
-* Classes Model Class
+* Teachers Model Class
 *
 * @package     SYSCMS
 * @subpackage  Models

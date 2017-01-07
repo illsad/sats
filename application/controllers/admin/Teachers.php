@@ -23,7 +23,7 @@ class Teachers extends CI_Controller {
         $config['total_rows'] = count($this->Teachers_model->get());
         $this->pagination->initialize($config);
 
-        $data['title'] = 'Kelas';
+        $data['title'] = 'Guru';
         $data['main'] = 'admin/teachers/teachers_list';
         $this->load->view('admin/layout', $data);
     }
@@ -43,7 +43,7 @@ class Teachers extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('teacher_name', 'Nama Guru', 'trim|required|xss_clean');
         $this->form_validation->set_rules('teacher_nip', 'NIP Guru', 'trim|required|xss_clean');
-        $this->form_validation->set_error_delimiters('<div teacher="alert alert-danger"><button type="button" teacher="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
@@ -66,13 +66,13 @@ class Teachers extends CI_Controller {
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Kelas',
+                        'log_module' => 'Guru',
                         'log_action' => $data['operation'],
                         'log_info' => 'ID:'.$status.';Title:' . $params['teacher_name']
                     )
             );
 
-            $this->session->set_flashdata('success', $data['operation'] . ' Kelas berhasil');
+            $this->session->set_flashdata('success', $data['operation'] . ' Guru berhasil');
             redirect('admin/teachers');
         } else {
             if ($this->input->post('teacher_id')) {
@@ -83,7 +83,7 @@ class Teachers extends CI_Controller {
             if (!is_null($id)) {
                 $data['teacher'] = $this->Teachers_model->get(array('id' => $id));
             }
-            $data['title'] = $data['operation'] . ' Kelas';
+            $data['title'] = $data['operation'] . ' Guru';
             $data['main'] = 'admin/teachers/teachers_add';
             $this->load->view('admin/layout', $data);
         }
@@ -98,7 +98,7 @@ class Teachers extends CI_Controller {
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $id,
-                        'log_module' => 'Kelas',
+                        'log_module' => 'Guru',
                         'log_action' => 'Hapus',
                         'log_info' => 'ID:' . $id . ';Title:' . $this->input->post('del_name')
                     )

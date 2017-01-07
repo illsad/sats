@@ -103,7 +103,7 @@ class Classes_model extends CI_Model {
 
     $this->db->select('classes.class_id, class_name, class_level, teacher_name,
     class_years, class_is_deleted, classes.user_user_id, classes.teachers_teacher_id,
-    user.user_full_name,
+    user.user_full_name, 
     class_input_date, class_last_update');
     $this->db->select('teachers.teacher_name');
     $this->db->join('user', 'user.user_id = classes.user_user_id', 'left');

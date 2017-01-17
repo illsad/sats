@@ -116,7 +116,7 @@ class Teachers extends CI_Controller {
         foreach ($keys as $key) {
             $no++;
             $row = array();
-            $row[] = $key->teacher_nip;
+            $row[] = $key->teacher_name;
             $row[] = $key->teacher_nip;
 
             //add html for action

@@ -10,6 +10,13 @@
         </ul>
       </li>
 
+      <li><a><i class="fa fa-user"></i> Kehadiran <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu" style="display: none">
+          <li><a href="<?php echo site_url('admin/present') ?>">Daftar Kehadiran</a>
+          </li>
+        </ul>
+      </li>
+
       <li><a><i class="fa fa-user"></i> Guru <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu" style="display: none">
           <li><a href="<?php echo site_url('admin/teachers') ?>">Daftar Guru</a>

@@ -35,8 +35,8 @@ if (isset($student)) {
           </select>
         </div>
         <div class="form-group">
-          <label >NIP *</label>
-          <input name="student_nip" required="" placeholder="NIP" type="text" class="form-control" value="<?php echo $NipValue; ?>">
+          <label >NIS *</label>
+          <input name="student_nip" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NipValue; ?>">
         </div>
         <div class="form-group">
           <label >Nama *</label>

@@ -30,7 +30,7 @@ if (isset($student)) {
           <select class="form-control select2_single" required="" name="classes_class_id">
             <option value="">--- Pilih Kelas ---</option>
             <?php foreach ($classes as $class): ?>
-            <option value="<?php echo $class['class_id'] ?>" <?php echo ($ClassValue == $class['class_id'])? 'selected="selected"' : '' ?>><?php echo $class['class_name'] ?></option>
+            <option value="<?php echo $class['class_id'] ?>" <?php echo ($ClassValue == $class['class_id'])? 'selected="selected"' : '' ?>><?php echo $class['class_level']. " ".$class['class_name'] ?></option>
             <?php endforeach ?>
           </select>
         </div>

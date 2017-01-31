@@ -62,7 +62,7 @@
           <thead>
             <tr>
               <th class="controls" align="center">NAMA SISWA</th>
-              <th class="controls" align="center">NIP SISWA</th>
+              <th class="controls" align="center">NIS</th>
             </tr>
           </thead>
           <tbody>

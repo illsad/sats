@@ -27,17 +27,22 @@ if (isset($present)) {
           <label >Keterangan </label>
           <div class="checkbox">
             <label>
-            <input type="checkbox" class="flat" checked="checked"> Izin
+            <input type="radio" name="present_type" class="flat" <?php echo $TypeValue == 'Hadir' ? 'checked' : '' ?> value="Hadir" > Hadir
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" class="flat"> Alfa
+            <input type="radio" name="present_type" class="flat" <?php echo $TypeValue == 'Izin' ? 'checked' : '' ?> value="Izin"> Izin
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" class="flat"> Sakit
+              <input type="radio" name="present_type" class="flat" <?php echo $TypeValue == 'Alfa' ? 'checked' : '' ?> value="Alfa"> Alfa
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="radio" name="present_type" class="flat" <?php echo $TypeValue == 'Sakit' ? 'checked' : '' ?> value="Sakit"> Sakit
             </label>
           </div>
           <textarea name="present_description" class="form-control"><?php echo $DescValue ?></textarea>

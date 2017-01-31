@@ -30,9 +30,10 @@
               <td>{{item.student_nip}}</td>
               <td>{{item.student_full_name}}</td>
               <td>
-              <button ng-disabled="item.desc" class="btn btn-xs btn-info">Izin</button>
-              <button class="btn btn-xs btn-warning">Sakit</button>
-              <button class="btn btn-xs btn-danger">Alfa</button>
+              <button ng-disabled="item.present_type == 'Hadir'" ng-click="inputType('Hadir', item.present_id)" class="btn btn-xs btn-success"><span ng-show="item.present_type == 'Hadir'" class="fa fa-check"></span> Hadir</button>
+              <button ng-disabled="item.present_type == 'Izin'" ng-click="inputType('Izin', item.present_id)" class="btn btn-xs btn-info"><span ng-show="item.present_type == 'Izin'" class="fa fa-check"></span> Izin</button>
+              <button ng-disabled="item.present_type == 'Sakit'" ng-click="inputType('Sakit', item.present_id)" class="btn btn-xs btn-warning"><span ng-show="item.present_type == 'Sakit'" class="fa fa-check"></span> Sakit</button>
+              <button ng-disabled="item.present_type == 'Alfa'" ng-click="inputType('Alfa', item.present_id)" class="btn btn-xs btn-danger"><span ng-show="item.present_type == 'Alfa'" class="fa fa-check"></span> Alfa</button>
               </td>
           </tr>
       </tbody>
@@ -65,6 +66,22 @@
     var app = angular.module("satsApp", []);
     app.controller('presentCtrl', function ($scope, $http) {
         $scope.presents = [];
+
+        $scope.inputType = function (type, id) {
+            var postData = $.param({
+                present_id: id,
+                present_type: type,
+            });
+            $.ajax({
+                method: "POST",
+                url: BASEURL + "api/inputType",
+                data: postData,
+                success: function (response) {
+                  console.log(response);
+                    $scope.getPresentToday();
+                }
+            });
+        }
 
         $scope.makePresent = function (id) {
             var postData = $.param({

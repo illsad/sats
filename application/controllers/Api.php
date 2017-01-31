@@ -52,6 +52,7 @@ class Api extends CI_Controller {
         $params['present_year'] = date('Y');
         $params['present_month'] = date('m');
         $params['present_date'] = date('Y-m-d');
+        $params['present_type'] = 'Hadir';
         $params['present_input_date'] = date('Y-m-d H:i');
         $params['present_last_update'] = date('Y-m-d H:i');
         $present_id = array();
@@ -60,6 +61,21 @@ class Api extends CI_Controller {
             $present_id[] = $this->Present_model->add($params);
         }
         $res = $present_id;
+
+        $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode($res));
+    }
+
+    public function inputType() {
+        $this->load->model('Present_model');
+        $id = $this->input->post('present_id');
+        $type = $this->input->post('present_type');
+
+        $params['present_id'] = $id;
+        $params['present_type'] = $type;
+        $this->Present_model->add($params);
+        $res = $id;
 
         $this->output
         ->set_content_type('application/json')

@@ -41,7 +41,6 @@ class Present extends CI_Controller {
     // Add Classes and Update
     public function add($id = NULL) {
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('present_year', 'Tanggal Kehadiran', 'trim|required|xss_clean');
         $this->form_validation->set_rules('present_type', 'Jenis Kehadiran', 'trim|required|xss_clean');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
@@ -50,6 +49,7 @@ class Present extends CI_Controller {
 
             if ($this->input->post('present_id')) {
                 $params['present_id'] = $this->input->post('present_id');
+                $params['present_type'] = $this->input->post('present_type');
             } else {
                 $params['present_input_date'] = date('Y-m-d H:i:s');
             }
@@ -71,7 +71,7 @@ class Present extends CI_Controller {
                         'user_id' => $this->session->userdata('user_id'),
                         'log_module' => 'Kehadiran',
                         'log_action' => $data['operation'],
-                        'log_info' => 'ID:'.$status.';Title:' . $params['present_name']
+                        'log_info' => 'ID:'.$status.';Date:' . $params['present_date']
                     )
             );
 

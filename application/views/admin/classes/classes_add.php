@@ -3,10 +3,12 @@ if (isset($class)) {
   $NameValue = $class['class_name'];
   $LevelValue = $class['class_level'];
   $TeacherValue = $class['teacher_name'];
+  $UsernameValue = $class['username'];
 } else {
   $NameValue = set_value('class_name');
   $LevelValue = set_value('class_level');
   $TeacherValue = set_value('teacher_name');
+  $UsernameValue = set_value('username');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -45,6 +47,20 @@ if (isset($class)) {
               <?php } ?>
             </select>
           </div>
+        <div class="form-group">
+          <label >Username *</label>
+          <input name="username" required="" placeholder="Username" type="text" class="form-control" value="<?php echo $UsernameValue; ?>">
+        </div>
+        <?php if (!isset($class)): ?>
+        <div class="form-group">
+          <label >Password *</label>
+          <input name="password" required="" placeholder="Password" type="password" class="form-control" >
+        </div>
+        <div class="form-group">
+          <label >Konfirmasi Password *</label>
+          <input name="passconf" required="" placeholder="Password" type="password" class="form-control" >
+        </div>
+        <?php endif ?>
           <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>
         </div>
         <div class="col-sm-9 col-md-3">

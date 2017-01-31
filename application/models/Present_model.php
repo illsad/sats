@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('BASEPATH'))
-exit('No direct script access allowed');
+  exit('No direct script access allowed');
 
 /**
 * Present Model Class
@@ -15,11 +15,11 @@ class Present_model extends CI_Model {
 
   var $table = 'present';
   var $all_column = array('present.present_id', 'present_year', 'present_month',
-  'present_date',
-  'present_type',
-  'present_description',
-  'students_student_id',
-  'student_full_name',
+    'present_date',
+    'present_type',
+    'present_description',
+    'students_student_id',
+    'student_full_name',
   'present_input_date', 'present_last_update'); //set all column field database
   var $order = array('present_last_update' => 'desc'); // default order
 
@@ -59,13 +59,13 @@ class Present_model extends CI_Model {
   function get_datatables() {
     $this->_get_datatables_query();
     if ($_POST['length'] != -1)
-    $this->db->limit($_POST['length'], $_POST['start']);
+      $this->db->limit($_POST['length'], $_POST['start']);
 
     $this->db->select('present.present_id, present_year, present_month,
-    present_date, present_type, present_description,
-    user_user_id,
-    students_student_id,
-    present_input_date, present_last_update');
+      present_date, present_type, present_description,
+      user_user_id,
+      students_student_id,
+      present_input_date, present_last_update');
     $this->db->select('students.student_full_name, student_nip');
     $this->db->select('user.user_name');
     $this->db->join('students', 'students.student_id = present.students_student_id', 'left');
@@ -91,6 +91,14 @@ class Present_model extends CI_Model {
       $this->db->where('present.present_id', $params['id']);
     }
 
+    if (isset($params['date'])) {
+      $this->db->where('present_date', $params['date']);
+    }
+
+    if (isset($params['class_id'])) {
+      $this->db->where('students.classes_class_id', $params['class_id']);
+    }
+
     if (isset($params['limit'])) {
       if (!isset($params['offset'])) {
         $params['offset'] = NULL;
@@ -106,12 +114,12 @@ class Present_model extends CI_Model {
     }
 
     $this->db->select('present.present_id, present_year, present_month,
-    present_date, present_type, present_description,
-    user_user_id,
-    students_student_id,
-    present_input_date, present_last_update');
-    $this->db->select('students.student_full_name, student_nip');
-    $this->db->select('user.user_name');
+      present_date, present_type, present_description,
+      user_user_id,
+      students_student_id,
+      present_input_date, present_last_update');
+    $this->db->select('students.student_full_name, student_nip, students.classes_class_id');
+    $this->db->select('user.user_full_name');
     $this->db->join('students', 'students.student_id = present.students_student_id', 'left');
     $this->db->join('user', 'user.user_id = present.user_user_id', 'left');
     $res = $this->db->get('present');

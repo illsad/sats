@@ -44,7 +44,7 @@ if (isset($student)) {
         </div>
         <div class="form-group">
           <label >No. Telepon</label>
-          <input name="student_phone" placeholder="Phone" type="number" class="form-control" value="<?php echo $PhoneValue; ?>">
+          <input name="student_phone" required="" placeholder="Phone" type="number" class="form-control" value="<?php echo $PhoneValue; ?>">
         </div>
         <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>
       </div>

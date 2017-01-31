@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,10 +33,11 @@
   <script src="<?php echo media_url() ?>/js/jquery.dataTables.min.js"></script>
   <script src="<?php echo media_url() ?>/js/dataTables.bootstrap.min.js"></script>
   <script src="<?php echo media_url() ?>/js/jquery-ui.min.js"></script>
-  <script src="<?php echo media_url(); ?>/js/angular.min.js"></script>
   <script src="<?php echo media_url(); ?>/js/mm.js"></script>
   <!-- Notyfy JS -->
   <script src="<?php echo media_url() ?>/js/jquery.notyfy.js"></script>
+  <!-- Angular JS-->
+  <script src="<?php echo media_url() ?>/js/angular.min.js"></script>
 
   <!--[if lt IE 9]>
   <script src="../assets/js/ie8-responsive-file-warning.js"></script>
@@ -53,8 +54,7 @@
 
 </head>
 
-
-<body class="nav-md">
+<body class="nav-md" <?php echo isset($ngapp) ? $ngapp : null; ?>>
   <div class="container body">
     <div class="main_container">
       <div class="col-md-3 left_col">
@@ -66,7 +66,7 @@
           <div class="clearfix"></div>
           <br />
 
-          <?php $this->load->view('admin/sidebar') ?>
+          <?php $this->load->view('class/sidebar') ?>
           <!-- /menu footer buttons -->
           <div class="sidebar-footer hidden-small">
             <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -78,7 +78,7 @@
             <a data-toggle="tooltip" data-placement="top" title="Lock">
               <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
             </a>
-            <?php echo form_open(site_url('admin/auth/logout'), array('id' => 'formLogout')) ?>
+            <?php echo form_open(site_url('class/auth/logout'), array('id' => 'formLogout')) ?>
             <input type="hidden" name="location" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
             <a onclick="document.getElementById('formLogout').submit()" type="submit" data-toggle="tooltip" data-placement="top" title="Logout">
               <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
@@ -91,7 +91,6 @@
 
       <!-- top navigation -->
       <div class="top_nav">
-
         <div class="nav_menu">
           <nav class="" role="navigation">
             <div class="nav toggle">
@@ -105,13 +104,13 @@
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                  <li><a href="<?php echo site_url('admin/dashboard') ?>">  Home</a>
+                  <li><a href="<?php echo site_url('class/dashboard') ?>">  Home</a>
                   </li>
-                  <li><a href="<?php echo site_url('admin/profile') ?>">  Profile</a>
+                  <li><a href="<?php echo site_url('class/profile') ?>">  Profile</a>
                   </li>
                   <li>
                     <center>
-                      <?php echo form_open(site_url('admin/auth/logout')) ?>
+                      <?php echo form_open(site_url('class/auth/logout')) ?>
                       <input type="hidden" name="location" value="<?php echo htmlspecialchars($_SERVER['REQUEST_URI']) ?>">
                       <button class="btn btn-xs btn-danger" id="btn-lgout" type="submit">
                         <i class="fa fa-sign-out pull-right"></i> Log out

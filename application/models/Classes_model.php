@@ -14,7 +14,8 @@ exit('No direct script access allowed');
 class Classes_model extends CI_Model {
 
   var $table = 'classes';
-  var $all_column = array('classes.class_id', 'class_name', 'class_level', 'teachers.teacher_name',
+  var $all_column = array('classes.class_id', 'class_name', 'class_level', 
+  'teachers.teacher_name', 'username', 'password',
   'class_years', 'class_is_deleted', 'classes.user_user_id', 'classes.teachers_teacher_id',
   'class_input_date', 'class_last_update'); //set all column field database
   var $order = array('class_last_update' => 'desc'); // default order
@@ -62,7 +63,7 @@ class Classes_model extends CI_Model {
 
     $this->db->select('classes.class_id, class_name, class_level, teacher_name,
     class_years, class_is_deleted, classes.user_user_id, classes.teachers_teacher_id,
-    user.user_full_name,
+    user.user_full_name, username, password,
     class_input_date, class_last_update');
     $this->db->select('teachers.teacher_name');
 
@@ -103,7 +104,7 @@ class Classes_model extends CI_Model {
 
     $this->db->select('classes.class_id, class_name, class_level, teacher_name,
     class_years, class_is_deleted, classes.user_user_id, classes.teachers_teacher_id,
-    user.user_full_name, 
+    user.user_full_name, username, password,
     class_input_date, class_last_update');
     $this->db->select('teachers.teacher_name');
     $this->db->join('user', 'user.user_id = classes.user_user_id', 'left');
@@ -123,6 +124,14 @@ class Classes_model extends CI_Model {
 
     if (isset($data['class_id'])) {
       $this->db->set('class_id', $data['class_id']);
+    }
+
+    if (isset($data['username'])) {
+      $this->db->set('username', $data['username']);
+    }
+
+    if (isset($data['password'])) {
+      $this->db->set('password', $data['password']);
     }
 
     if (isset($data['class_name'])) {

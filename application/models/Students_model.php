@@ -98,6 +98,10 @@ class Students_model extends CI_Model {
       $this->db->limit($params['limit'], $params['offset']);
     }
 
+    if (isset($params['class_id'])) {
+      $this->db->where('classes_class_id', $params['class_id']);
+    } 
+
     if (isset($params['order_by'])) {
       $this->db->order_by($params['order_by'], 'desc');
     } else {

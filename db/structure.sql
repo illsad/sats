@@ -177,6 +177,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `classes` (
   `class_id` INT NOT NULL AUTO_INCREMENT ,
+  `username` VARCHAR(45) NULL ,
+  `password` VARCHAR(45) NULL ,
   `class_level` ENUM('X', 'XI', 'XII') NULL ,
   `class_name` VARCHAR(45) NULL ,
   `class_years` VARCHAR(45) NULL ,
@@ -236,11 +238,13 @@ CREATE  TABLE IF NOT EXISTS `present` (
   `present_description` TEXT NULL ,
   `user_user_id` INT(11) NULL ,
   `students_student_id` INT NULL ,
+  `classes_class_id` INT NULL ,
   `present_input_date` TIMESTAMP NULL ,
   `present_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`present_id`) ,
   INDEX `fk_present_user1_idx` (`user_user_id` ASC) ,
   INDEX `fk_present_students1_idx` (`students_student_id` ASC) ,
+  INDEX `fk_present_classes1_idx` (`classes_class_id` ASC) ,
   CONSTRAINT `fk_present_user1`
     FOREIGN KEY (`user_user_id` )
     REFERENCES `user` (`user_id` )
@@ -249,6 +253,11 @@ CREATE  TABLE IF NOT EXISTS `present` (
   CONSTRAINT `fk_present_students1`
     FOREIGN KEY (`students_student_id` )
     REFERENCES `students` (`student_id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_present_classes1`
+    FOREIGN KEY (`classes_class_id` )
+    REFERENCES `classes` (`class_id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

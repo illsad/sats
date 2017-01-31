@@ -61,7 +61,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="<?php echo site_url ('index.php')?>" class="site_title"><i class="fa fa-paw"></i> <span>SATS</span></a>
+            <a href="<?php echo site_url ('index.php')?>" class="site_title"><i class="fa fa-book"></i> <span>WIRABUANA I</span></a>
           </div>
           <div class="clearfix"></div>
           <br />
@@ -100,7 +100,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="<?php echo media_url() ?>/images/user.png" alt=""><?php echo $text = ucfirst($this->session->userdata('user_full_name')); ?>
+                  <img src="<?php echo media_url() ?>/images/user.png" alt=""><?php echo $text = $this->session->userdata('class_level'). ' '.ucfirst($this->session->userdata('class_name')); ?>
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">

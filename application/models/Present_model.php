@@ -56,11 +56,14 @@ class Present_model extends CI_Model {
     }
   }
 
-  function get_datatables() {
+  function get_datatables($params = array()) {
     $this->_get_datatables_query();
     if ($_POST['length'] != -1)
       $this->db->limit($_POST['length'], $_POST['start']);
 
+    if (isset($params['class_id'])) {
+      $this->db->where('students.classes_class_id', $params['class_id']);
+    } 
     $this->db->select('present.present_id, present_year, present_month,
       present_date, present_type, present_description,
       user_user_id,

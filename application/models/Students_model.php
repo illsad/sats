@@ -57,11 +57,14 @@ class Students_model extends CI_Model {
     }
   }
 
-  function get_datatables() {
+  function get_datatables($params = array()) {
     $this->_get_datatables_query();
     if ($_POST['length'] != -1)
     $this->db->limit($_POST['length'], $_POST['start']);
 
+    if (isset($params['class_id'])) {
+      $this->db->where('classes_class_id', $params['class_id']);
+    } 
     $this->db->select('students.student_id, student_nip, student_full_name,
     student_is_resign, student_is_deleted, student_phone,
     classes_class_id,

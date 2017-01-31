@@ -54,6 +54,7 @@ class Auth extends CI_Controller {
             if ($query->num_rows() > 0) {
                 $this->session->set_userdata('logged_class', TRUE);
                 $this->session->set_userdata('class_id', $query->row('class_id'));
+                $this->session->set_userdata('class_level', $query->row('class_level'));
                 $this->session->set_userdata('class_name', $query->row('class_name'));
                 if ($lokasi != '') {
                     header("Location:" . htmlspecialchars($lokasi));
@@ -79,6 +80,7 @@ class Auth extends CI_Controller {
     function logout() {
         $this->session->unset_userdata('logged_class');
         $this->session->unset_userdata('class_id');
+        $this->session->unset_userdata('class_level');
         $this->session->unset_userdata('class_name');
         if ($this->input->post('location')) {
             $lokasi = $this->input->post('location');

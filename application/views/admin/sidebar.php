@@ -10,7 +10,7 @@
         </ul>
       </li>
 
-      <li><a><i class="fa fa-user"></i> Kehadiran <span class="fa fa-chevron-down"></span></a>
+      <li><a><i class="fa fa-calendar"></i> Kehadiran <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu" style="display: none">
           <li><a href="<?php echo site_url('admin/present') ?>">Daftar Kehadiran</a>
           </li>
@@ -27,6 +27,13 @@
       <li><a><i class="fa fa-institution"></i> Kelas <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu" style="display: none">
           <li><a href="<?php echo site_url('admin/classes') ?>">Daftar Kelas</a>
+          </li>
+        </ul>
+      </li>
+
+      <li><a><i class="fa fa-area-chart"></i> Laporan <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu" style="display: none">
+          <li><a href="<?php echo site_url('admin/report') ?>">Daftar Laporan</a>
           </li>
         </ul>
       </li>

@@ -3,7 +3,7 @@
     <div class="x_title">
       <h2><i class="fa fa-list"></i> Daftar Siswa</h2>
       <ul class="nav navbar-right panel_toolbox">
-        <li><a class="btn btn-success" href="<?php echo site_url('admin/students/add'); ?>"><i class="fa fa-plus"></i> Tambah</a>
+        <li><a class="btn btn-success" href="<?php echo site_url('class/students/add'); ?>"><i class="fa fa-plus"></i> Tambah</a>
         </li>
         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
         </li>

@@ -3,12 +3,10 @@ if (isset($student)) {
   $NipValue = $student['student_nip'];
   $NameValue = $student['student_full_name'];
   $PhoneValue = $student['student_phone'];
-  $ClassValue = $student['classes_class_id'];
 } else {
   $NipValue = set_value('student_nip');
   $NameValue = set_value('student_full_name');
   $PhoneValue = set_value('student_phone');
-  $ClassValue = set_value('classes_class_id');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -25,15 +23,6 @@ if (isset($student)) {
         <?php if (isset($student)): ?>
           <input type="hidden" name="student_id" value="<?php echo $student['student_id']; ?>" />
         <?php endif; ?>
-        <div class="form-group">
-          <label >Kelas *</label>
-          <select class="form-control select2_single" required="" name="classes_class_id">
-            <option value="">--- Pilih Kelas ---</option>
-            <?php foreach ($classes as $class): ?>
-            <option value="<?php echo $class['class_id'] ?>" <?php echo ($ClassValue == $class['class_id'])? 'selected="selected"' : '' ?>><?php echo $class['class_name'] ?></option>
-            <?php endforeach ?>
-          </select>
-        </div>
         <div class="form-group">
           <label >NIP *</label>
           <input name="student_nip" required="" placeholder="NIP" type="text" class="form-control" value="<?php echo $NipValue; ?>">

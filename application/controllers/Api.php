@@ -33,6 +33,15 @@ class Api extends CI_Controller {
         ->set_output(json_encode($res));
     }
     
+    public function getClassByLevel($level = NULL) {
+        $this->load->model('Classes_model');
+        $res = $this->Classes_model->get(array('level' => $level));
+
+        $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode($res));
+    }
+    
     public function getPresentToday($id = NULL) {
         $this->load->model('Present_model');
         $res = $this->Present_model->get(array('class_id' => $id, 'date' => date('Y-m-d')));

@@ -91,6 +91,11 @@ class Students_model extends CI_Model {
     if (isset($params['id'])) {
       $this->db->where('students.student_id', $params['id']);
     }
+
+    if (isset($params['class'])) {
+      $this->db->where('students.classes_class_id', $params['class']);
+    }
+
     $this->db->where('student_is_deleted', FALSE);
 
     if (isset($params['limit'])) {

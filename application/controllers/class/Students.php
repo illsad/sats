@@ -65,6 +65,62 @@ class Students extends CI_Controller {
         echo json_encode($output);
     }
 
+    // Add Classes and Update
+    public function add($id = NULL) {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('student_full_name', 'Nama Siswa', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('student_nip', 'NIP Siswa', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('student_phone', 'No Telepon Siswa', 'trim|required|xss_clean');
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
+        $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
+
+        if ($_POST AND $this->form_validation->run() == TRUE) {
+
+            if ($this->input->post('student_id')) {
+                $params['student_id'] = $this->input->post('student_id');
+            } else {
+                $params['student_input_date'] = date('Y-m-d H:i:s');
+                $params['student_is_deleted'] = false;
+                $params['student_is_resign'] = false;
+            }
+
+            $params['student_last_update'] = date('Y-m-d H:i:s');
+            $params['student_full_name'] = $this->input->post('student_full_name');
+            $params['student_phone'] = $this->input->post('student_phone');
+            $params['student_nip'] = $this->input->post('student_nip');
+            $params['classes_class_id'] = $this->session->userdata('class_id');
+            $status = $this->Students_model->add($params);
+
+
+            // activity log
+            $this->Activity_log_model->add(
+                    array(
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'user_id' => $this->session->userdata('user_id'),
+                        'log_module' => 'Siswa',
+                        'log_action' => $data['operation'],
+                        'log_info' => 'ID:'.$status.';Title:' . $params['student_full_name']
+                    )
+            );
+
+            $this->session->set_flashdata('success', $data['operation'] . ' Siswa berhasil');
+            redirect('class/students');
+        } else {
+            if ($this->input->post('student_id')) {
+                redirect('class/students/edit/' . $this->input->post('student_id'));
+            }
+
+            // Edit mode
+            if (!is_null($id)) {
+                $data['student'] = $this->Students_model->get(array('id' => $id));
+            }
+            $this->load->model('Classes_model');
+            $data['title'] = $data['operation'] . ' Siswa';
+            $data['main'] = 'class/students/students_add';
+            $this->load->view('class/layout', $data);
+        }
+    }
+
 }
 
 /* End of file students.php */

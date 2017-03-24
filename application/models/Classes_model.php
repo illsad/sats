@@ -86,6 +86,11 @@ class Classes_model extends CI_Model {
     if (isset($params['id'])) {
       $this->db->where('classes.class_id', $params['id']);
     }
+
+    if (isset($params['level'])) {
+      $this->db->where('classes.class_level', $params['level']);
+    }
+    
     $this->db->where('class_is_deleted', FALSE);
 
     if (isset($params['limit'])) {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -54,7 +54,7 @@
 </head>
 
 
-<body class="nav-md">
+<body class="nav-md" <?php echo isset($ngapp) ? $ngapp : null; ?>>
   <div class="container body">
     <div class="main_container">
       <div class="col-md-3 left_col">

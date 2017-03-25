@@ -34,8 +34,11 @@
       <div class="col-md-2">
         <input type="text" name="de" <?php echo (isset($q['de'])) ? 'value="'.$q['de'].'"' : '' ?> class="datepicker form-control f_mr_top" placeholder="Tanggal Akhir">
       </div>
-      <div class="col-md-2">
-        <input type="submit" class="btn btn-success" value="Filter">
+      <div class="col-md-1">
+        <btn type="submit" class="btn btn-sm btn-success"><i class="fa fa-filter"></i> Filter</btn>
+      </div>
+      <div class="col-md-1">
+        <a class="btn btn-sm btn-success" target="_blank" href="<?php echo site_url('admin/report/export_excel' . '/?' . http_build_query($q)) ?>" ><i class="fa fa-file-excel-o"></i> Eksport Excel</a>
       </div>
       <?php echo form_close() ?>
     </div>
@@ -94,13 +97,9 @@
             </tbody>
           </table>
         </div>
-        <div >
-          <?php echo $this->pagination->create_links(); ?>
-        </div>
       </div>
     </div>
   </div>
-
 
   <script>
     var app = angular.module("satsApp", []);

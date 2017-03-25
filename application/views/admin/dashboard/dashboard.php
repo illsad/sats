@@ -1,42 +1,38 @@
 <div class="row">
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-caret-square-o-right"></i>
+            <div class="icon"><i class="fa fa-bank"></i>
             </div>
-            <div class="count">179</div>
+            <div class="count"><?php echo $class ?></div>
 
-            <h3>New Sign ups</h3>
-            <p>Lorem ipsum psdea itgum rixt.</p>
+            <h3>Total Kelas</h3>
         </div>
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-comments-o"></i>
+            <div class="icon"><i class="fa fa-user"></i>
             </div>
-            <div class="count">179</div>
+            <div class="count"><?php echo $teachers ?></div>
 
-            <h3>New Sign ups</h3>
-            <p>Lorem ipsum psdea itgum rixt.</p>
+            <h3>Total Guru</h3>
         </div>
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-sort-amount-desc"></i>
+            <div class="icon"><i class="fa fa-graduation-cap"></i>
             </div>
-            <div class="count">179</div>
+            <div class="count"><?php echo $students ?></div>
 
-            <h3>New Sign ups</h3>
-            <p>Lorem ipsum psdea itgum rixt.</p>
+            <h3>Total Siswa</h3>
         </div>
     </div>
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
-            <div class="icon"><i class="fa fa-check-square-o"></i>
+            <div class="icon"><i class="fa fa-users"></i>
             </div>
-            <div class="count">179</div>
+            <div class="count"><?php echo $users ?></div>
 
-            <h3>New Sign ups</h3>
-            <p>Lorem ipsum psdea itgum rixt.</p>
+            <h3>Total Admin</h3>
         </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>SATS WIRABUANA <?php echo isset($title) ? ' | ' . $title : null; ?></title>
-  <link rel="icon" href="<?php echo media_url('ico/favicon.jpg'); ?>" type="image/x-icon">
+  <link rel="icon" href="<?php echo media_url('images/logo.png'); ?>" type="image/x-icon">
 
   <!-- Bootstrap core CSS -->
 
@@ -62,7 +62,7 @@
         <div class="left_col scroll-view">
 
           <div class="navbar nav_title" style="border: 0;">
-            <a href="<?php echo site_url ('index.php')?>" class="site_title"><i class="fa fa-book"></i> <span>WIRABUANA I</span></a>
+            <a href="<?php echo site_url ('index.php')?>" class="site_title"><i class="fa fa-book"></i> <span>WIRABUANA</span></a>
           </div>
           <div class="clearfix"></div>
           <br />

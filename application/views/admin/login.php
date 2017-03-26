@@ -8,7 +8,7 @@
     <title>SATS Login | Admin</title> 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="<?php echo media_url('ico/favicon.jpg'); ?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo media_url('images/logo.png'); ?>" type="image/x-icon">
     <!-- CSS Style -->
     <link href="<?php echo media_url() ?>/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo media_url() ?>/css/design.css" rel="stylesheet" type="text/css">
@@ -43,7 +43,10 @@
                         <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
                             <div class="card card-login">
                                 <div class="card-header text-center" data-background-color="blue">
-                                    <h4 class="card-title">SMK Wirabuana</h4>       
+                                    <h4 class="card-title">SMK Wirabuana</h4> 
+                                    <center>
+                                    <img class="img-responsive" src="<?php echo media_url() ?>/images/logo.png">
+                                    </center>
                                 </div>
                                 <p class="category text-center">
                                     Dear user login here!

@@ -59,15 +59,45 @@
     <div class="x_content">
       <div class="" role="tabpanel" data-example-id="togglable-tabs">
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Total Absensi / Bulan</a>
+          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Daftar Siswa</a>
           </li>
-          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Daftar Siswa</a>
+          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Total Absensi / Bulan</a>
           </li>
           <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Diagram / Bulan</a>
           </li>
         </ul>
         <div id="myTabContent" class="tab-content">
           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="controls" align="center">NAMA SISWA</th>
+                    <th class="controls" align="center">NIS</th>
+                    <th class="controls" align="center">No. HP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($students as $student): ?>
+                    <tr>
+                      <td>
+                      <a href="<?php echo site_url('admin/students/detail/'.$student['student_id']) ?>">
+                          <b><?php echo $student['student_full_name'] ?></b>
+                        </a>
+                      </td>
+                      <td>
+                        <?php echo $student['student_nip'] ?>
+                      </td>
+                      <td>
+                        <?php echo $student['student_phone'] ?>
+                      </td>
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
             <div class="table-responsive">
               <table class="table table-striped">
                 <thead>
@@ -106,7 +136,7 @@
                       endforeach;
                       ?>
                       <tr>
-                        <td><a href="<?php echo site_url('admin/students/'.$key['student_id']) ?>">
+                        <td><a href="<?php echo site_url('admin/students/detail/'.$key['student_id']) ?>">
                           <b><?php echo $key['student_full_name'] ?></b></a></td>
                           <td><?php echo $key['student_nip'] ?></td>
                           <td><?php echo $key['class_level'].' '.$key['class_name'] ?></td>
@@ -125,32 +155,6 @@
                         $x++;
                         endforeach;
                         ?>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                  <div class="table-responsive">
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th class="controls" align="center">NAMA SISWA</th>
-                          <th class="controls" align="center">NIS</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php foreach ($students as $student): ?>
-                          <tr>
-                            <td>
-                              <a href="<?php echo site_url('admin/students/'.$key['student_id']) ?>">
-                                <b><?php echo $student['student_full_name'] ?></b>
-                              </a>
-                            </td>
-                            <td>
-                              <?php echo $student['student_nip'] ?>
-                            </td>
-                          </tr>
-                        <?php endforeach ?>
                       </tbody>
                     </table>
                   </div>
@@ -239,14 +243,14 @@
             }  ?>],
             datasets: [
             {
-                    label:'Izin',
+              label:'Izin',
                     backgroundColor: "#26B99A", //rgba(220,220,220,0.5)
                     strokeColor: "#26B99A", //rgba(220,220,220,0.8)
                     highlightFill: "#36CAAB", //rgba(220,220,220,0.75)
                     highlightStroke: "#36CAAB", //rgba(220,220,220,1)
                     data: [<?php foreach ($varIzin as $key => $value) {
-              echo '"'.$value.'",';
-            }  ?>]
+                      echo '"'.$value.'",';
+                    }  ?>]
                   },
                   {
                     label:'Sakit',
@@ -255,8 +259,8 @@
                     highlightFill: "#066477", //rgba(151,187,205,0.75)
                     highlightStroke: "#066477", //rgba(151,187,205,1)
                     data: [<?php foreach ($varSakit as $key => $value) {
-              echo '"'.$value.'",';
-            }  ?>]
+                      echo '"'.$value.'",';
+                    }  ?>]
                   },
                   {
                     label:'Alfa',
@@ -265,8 +269,8 @@
                     highlightFill: "#066477", //rgba(151,187,205,0.75)
                     highlightStroke: "#066477", //rgba(151,187,205,1)
                     data: [<?php foreach ($varAlfa as $key => $value) {
-              echo '"'.$value.'",';
-            }  ?>]
+                      echo '"'.$value.'",';
+                    }  ?>]
                   }
                   ]
                 },

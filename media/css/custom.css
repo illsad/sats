@@ -370,8 +370,14 @@ dark,
 
 body {
     color: #73879C;
-    background: #2A3F54;
-    /*#ECF0F1; #FCFCFC*/
+    background: rgba(4,100,217,1);
+background: -moz-linear-gradient(left, rgba(4,100,217,1) 0%, rgba(38,140,235,1) 14%, rgba(3,113,230,1) 17%, rgba(3,113,230,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(4,100,217,1)), color-stop(14%, rgba(38,140,235,1)), color-stop(17%, rgba(3,113,230,1)), color-stop(100%, rgba(3,113,230,1)));
+background: -webkit-linear-gradient(left, rgba(4,100,217,1) 0%, rgba(38,140,235,1) 14%, rgba(3,113,230,1) 17%, rgba(3,113,230,1) 100%);
+background: -o-linear-gradient(left, rgba(4,100,217,1) 0%, rgba(38,140,235,1) 14%, rgba(3,113,230,1) 17%, rgba(3,113,230,1) 100%);
+background: -ms-linear-gradient(left, rgba(4,100,217,1) 0%, rgba(38,140,235,1) 14%, rgba(3,113,230,1) 17%, rgba(3,113,230,1) 100%);
+background: linear-gradient(to right, rgba(4,100,217,1) 0%, rgba(38,140,235,1) 14%, rgba(3,113,230,1) 17%, rgba(3,113,230,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0464d9', endColorstr='#0371e6', GradientType=1 );
 
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
     font-size: 13px;

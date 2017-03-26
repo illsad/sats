@@ -34,6 +34,7 @@
   <script src="<?php echo media_url() ?>/js/dataTables.bootstrap.min.js"></script>
   <script src="<?php echo media_url() ?>/js/jquery-ui.min.js"></script>
   <script src="<?php echo media_url(); ?>/js/angular.min.js"></script>
+  <script src="<?php echo media_url(); ?>/js/Chart.min.js"></script>
   <script src="<?php echo media_url(); ?>/js/mm.js"></script>
   <!-- Notyfy JS -->
   <script src="<?php echo media_url() ?>/js/jquery.notyfy.js"></script>

@@ -3,9 +3,6 @@
         <div class="col-md-12 main">
             <h3>
                 Detail Profil
-                <span class=" pull-right">
-                    <a href="<?php echo site_url('admin/profile/edit/') ?>" class="btn btn-success btn-sm"><span class="fa fa-edit"></span>&nbsp; Edit</a> 
-                </span>
             </h3><br>
         </div>
         <div class="col-md-12">

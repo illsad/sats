@@ -104,6 +104,14 @@ class Present_model extends CI_Model {
       $this->db->where('students.classes_class_id', $params['class']);
     }
 
+    if (isset($params['level'])) {
+      $this->db->where('classes.class_level', $params['level']);
+    }
+
+    if (isset($params['not_type'])) {
+      $this->db->where('present.present_type !=', $params['not_type']);
+    }
+
     if (isset($params['date_start']) AND isset($params['date_end'])) {
       $this->db->where('present_date >=', $params['date_start'] . ' 00:00:00');
       $this->db->where('present_date <=', $params['date_end'] . ' 23:59:59');

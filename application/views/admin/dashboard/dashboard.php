@@ -36,157 +36,176 @@
         </div>
     </div>
 </div>
+<?php 
+$sx = 0;
+$ix = 0;
+$ax = 0;
+foreach ($presentX as $row): 
+    switch ($row['present_type']) {
+        case 'Izin':
+        $ix++;
+        break;
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Top Profiles <small>Sessions</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item One Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item Two Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item Two Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item Two Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item Three Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
+        case 'Sakit':
+        $sx++;
+        break;
 
-    <div class="col-md-6">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Top Profiles <small>Sessions</small></h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item One Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item Two Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item Two Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item Two Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-                <article class="media event">
-                    <a class="pull-left date">
-                        <p class="month">April</p>
-                        <p class="day">23</p>
-                    </a>
-                    <div class="media-body">
-                        <a class="title" href="#">Item Three Tittle</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
-</div>
+        case 'Alfa':
+        $ax++;
+        break;
+
+        default:
+        break;
+    }
+    endforeach;
+    ?>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-bank"></i> Kelas X</h2>
+                    <br>
+                    <br>
+                    <ul class="nav panel_toolbox">
+                        <li><button class="btn btn-xs btn-success">IZIN: <?php echo $ix; ?></button>
+                        </li>
+                        <li><button class="btn btn-xs btn-warning">SAKIT: <?php echo $sx; ?></button>
+                        </li>
+                        <li><button class="btn btn-xs btn-danger">ALFA: <?php echo $ax; ?></button>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-stripped">
+                          <tbody>
+                              <?php foreach ($presentX as $row): ?>
+                                  <tr>
+                                      <td><a href=""><?php echo $row['class_level'].' '.$row['class_name'] ?></a></td>
+                                      <td><a href=""><?php echo $row['student_full_name'] ?></a></td>
+                                      <td><span class="badge"><?php echo $row['present_type'] ?></span></td>
+                                  </tr>
+                              <?php endforeach ?>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <?php 
+      $sxi = 0;
+      $ixi = 0;
+      $axi = 0;
+      foreach ($presentXI as $row): 
+        switch ($row['present_type']) {
+            case 'Izin':
+            $ixi++;
+            break;
+
+            case 'Sakit':
+            $sxi++;
+            break;
+
+            case 'Alfa':
+            $axi++;
+            break;
+
+            default:
+            break;
+        }
+        endforeach;
+        ?>
+        <div class="col-md-4">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-bank"></i> Kelas XI</h2>
+                    <br>
+                    <br>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><button class="btn btn-xs btn-success">IZIN: <?php echo $ixi; ?></button>
+                        </li>
+                        <li><button class="btn btn-xs btn-warning">SAKIT: <?php echo $sxi; ?></button>
+                        </li>
+                        <li><button class="btn btn-xs btn-danger">ALFA: <?php echo $axi; ?></button>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-stripped">
+                          <tbody>
+                              <?php foreach ($presentXI as $row): ?>
+                                  <tr>
+                                      <td><a href=""><?php echo $row['class_level'].' '.$row['class_name'] ?></a></td>
+                                      <td><a href=""><?php echo $row['student_full_name'] ?></a></td>
+                                      <td><span class="badge"><?php echo $row['present_type'] ?></span></td>
+                                  </tr>
+                              <?php endforeach ?>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <?php 
+      $sxii = 0;
+      $ixii = 0;
+      $axii = 0;
+      foreach ($presentXII as $row): 
+        switch ($row['present_type']) {
+            case 'Izin':
+            $ixii++;
+            break;
+
+            case 'Sakit':
+            $sxii++;
+            break;
+
+            case 'Alfa':
+            $axii++;
+            break;
+
+            default:
+            break;
+        }
+        endforeach;
+        ?>
+        <div class="col-md-4">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-bank"></i> Kelas XII</h2>
+                    <br>
+                    <br>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><button class="btn btn-xs btn-success">IZIN: <?php echo $ixii; ?></button>
+                        </li>
+                        <li><button class="btn btn-xs btn-warning">SAKIT: <?php echo $sxii; ?></button>
+                        </li>
+                        <li><button class="btn btn-xs btn-danger">ALFA: <?php echo $axii; ?></button>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-stripped">
+                          <tbody>
+                              <?php foreach ($presentXII as $row): ?>
+                                  <tr>
+                                      <td><a href=""><?php echo $row['class_level'].' '.$row['class_name'] ?></a></td>
+                                      <td><a href=""><?php echo $row['student_full_name'] ?></a></td>
+                                      <td><span class="badge"><?php echo $row['present_type'] ?></span></td>
+                                  </tr>
+                              <?php endforeach ?>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>

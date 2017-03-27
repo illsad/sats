@@ -19,11 +19,15 @@ class Dashboard extends CI_Controller {
         $this->load->model('Teachers_model');
         $this->load->model('User_model');
         $this->load->model('Classes_model');
+        $this->load->model('Present_model');
         $data['title'] = 'Dashboard';
         $data['students'] = count($this->Students_model->get());
         $data['teachers'] = count($this->Teachers_model->get());
         $data['users'] = count($this->User_model->get());
         $data['class'] = count($this->Classes_model->get());
+        $data['presentX'] = $this->Present_model->get(array('level' => 'X', 'not_type' => 'Hadir', 'date' => date('Y-m-d')));
+        $data['presentXI'] = $this->Present_model->get(array('level' => 'XI', 'not_type' => 'Hadir', 'date' => date('Y-m-d')));
+        $data['presentXII'] = $this->Present_model->get(array('level' => 'XII', 'not_type' => 'Hadir', 'date' => date('Y-m-d')));
 
         $data['main'] = 'admin/dashboard/dashboard';
         $this->load->view('admin/layout', $data);

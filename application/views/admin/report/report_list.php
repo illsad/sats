@@ -35,7 +35,7 @@
         <input type="text" name="de" <?php echo (isset($q['de'])) ? 'value="'.$q['de'].'"' : '' ?> class="datepicker form-control f_mr_top" placeholder="Tanggal Akhir">
       </div>
       <div class="col-md-1">
-        <btn type="submit" class="btn btn-sm btn-success"><i class="fa fa-filter"></i> Filter</btn>
+        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-filter"></i> Filter</button>
       </div>
       <div class="col-md-1">
         <a class="btn btn-sm btn-success" target="_blank" href="<?php echo site_url('admin/report/export_excel' . '/?' . http_build_query($q)) ?>" ><i class="fa fa-file-excel-o"></i> Eksport Excel</a>

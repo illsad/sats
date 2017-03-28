@@ -44,7 +44,7 @@ class Api extends CI_Controller {
     
     public function getPresentToday($id = NULL) {
         $this->load->model('Present_model');
-        $res = $this->Present_model->get(array('class_id' => $id, 'date' => date('Y-m-d')));
+        $res = $this->Present_model->get(array('class' => $id, 'date' => date('Y-m-d')));
 
         $this->output
         ->set_content_type('application/json')

@@ -47,7 +47,7 @@
         <thead>
           <tr>
             <th class="controls" align="center">NAMA SISWA</th>
-            <th class="controls" align="center">NIP</th>
+            <th class="controls" align="center">NIS</th>
             <th class="controls" align="center">KELAS</th>
             <th class="controls" align="center">IZIN</th>
             <th class="controls" align="center">SAKIT</th>

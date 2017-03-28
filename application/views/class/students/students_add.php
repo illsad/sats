@@ -24,8 +24,8 @@ if (isset($student)) {
           <input type="hidden" name="student_id" value="<?php echo $student['student_id']; ?>" />
         <?php endif; ?>
         <div class="form-group">
-          <label >NIP *</label>
-          <input name="student_nip" required="" placeholder="NIP" type="text" class="form-control" value="<?php echo $NipValue; ?>">
+          <label >NIS *</label>
+          <input name="student_nip" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NipValue; ?>">
         </div>
         <div class="form-group">
           <label >Nama *</label>

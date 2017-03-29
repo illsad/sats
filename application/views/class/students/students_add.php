@@ -40,37 +40,10 @@ if (isset($student)) {
       <div class="col-sm-9 col-md-3">
         <div class="form-group">
           <button type="submit" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button>
-          <a href="<?php echo site_url('admin/students'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a>
-          <?php if (isset($student)): ?>
-            <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#confirm-del"><i class="fa fa-trash"></i> Hapus</button>
-          <?php endif; ?>
+          <a href="<?php echo site_url('class/students'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a>
         </div>
       </div>
     </div>
     <?php echo form_close(); ?>
   </div>
 </div>
-
-<?php if (isset($student)): ?>
-  <!-- Delete Confirmation -->
-  <div class="modal fade" id="confirm-del">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title"><b><span class="fa fa-warning"></span> Konfirmasi Penghapusan</b></h4>
-        </div>
-        <div class="modal-body">
-          <p>Data yang dipilih akan dihapus oleh sistem, apakah anda yakin?;</p>
-        </div>
-        <?php echo form_open('admin/students/delete/' . $student['student_id']); ?>
-        <div class="modal-footer">
-          <a><button style="float: right;margin-left: 10px" type="button" class="btn btn-default" data-dismiss="modal">Tidak</button></a>
-          <input type="hidden" name="del_name" value="<?php echo $student['student_full_name'] ?>" />
-          <button type="submit" class="btn btn-danger"> Ya</button>
-        </div>
-        <?php echo form_close(); ?>
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
-<?php endif; ?>

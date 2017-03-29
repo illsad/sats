@@ -24,7 +24,7 @@ if (isset($student)) {
       <div class="col-sm-9 col-md-9">
         <?php if (isset($student)): ?>
           <input type="hidden" name="student_id" value="<?php echo $student['student_id']; ?>" />
-        <?php endif; ?>
+        <?php else: ?>
         <div class="form-group">
           <label >Kelas *</label>
           <select class="form-control select2_single" required="" name="classes_class_id">
@@ -34,6 +34,7 @@ if (isset($student)) {
             <?php endforeach ?>
           </select>
         </div>
+        <?php endif; ?>
         <div class="form-group">
           <label >NIS *</label>
           <input name="student_nip" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NipValue; ?>">

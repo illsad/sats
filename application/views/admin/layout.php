@@ -61,11 +61,12 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
 
-          <div class="navbar nav_title" style="border: 0;">
-            <a href="<?php echo site_url ('index.php')?>" class="site_title"><i class="fa fa-book"></i> <span>WIRABUANA</span></a>
+          <div class="navbar nav_title" style="border: 1;">
+            <a href="<?php echo site_url ('index.php')?>" class="site_title"><img width="50" height="50" src="<?php echo media_url() ?>/images/logo.png" alt=""> <span>WIRABUANA</span></a>
           </div>
           <div class="clearfix"></div>
-          <br />
+          <br>
+         
 
           <?php $this->load->view('admin/sidebar') ?>
         </div>

@@ -65,8 +65,6 @@
             <a href="<?php echo site_url ('index.php')?>" class="site_title"><img width="50" height="50" src="<?php echo media_url() ?>/images/logo.png" alt=""> <span>WIRABUANA</span></a>
           </div>
           <div class="clearfix"></div>
-          <br>
-         
 
           <?php $this->load->view('admin/sidebar') ?>
         </div>
@@ -104,12 +102,9 @@
                   </li>
                 </ul>
               </li>
-
               <li>
                <h2 class="top-calendar"><span class="fa fa-calendar"></span> <span id="date-time"></span></h2>
              </li>
-
-
            </ul>
          </nav>
        </div>
@@ -127,8 +122,8 @@
       <!-- footer content -->
       <footer>
         <div class="">
-          <p class="pull-right">© 2016 |
-            <span class="lead"> <i class="fa fa-graduate-cap"></i> SMK WIRABUANA</span>
+          <p class="pull-right">&copy; <script>document.write(new Date().getFullYear())</script> |
+            <span><i class="fa fa-graduation-cap"></i> SMK WIRABUANA</span>
           </p>
         </div>
         <div class="clearfix"></div>

@@ -82,7 +82,7 @@
 
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="<?php echo media_url() ?>/images/user.png" alt=""><?php echo $text = $this->session->userdata('class_level'). ' '.ucfirst($this->session->userdata('class_name')); ?>
+                  <img src="<?php echo media_url() ?>/images/user.png" alt=""><?php echo $text = $this->session->userdata('class_level'). ' '.ucfirst($this->session->userdata('class_name')); ?> 
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -101,51 +101,51 @@
                 </ul>
               </li>
 
-              <li class="">
-               <h2 id="date-time"></h2>
-              </li>
+              <li>
+               <h2 class="top-calendar"><span class="fa fa-calendar"></span> <span id="date-time"></span></h2>
+             </li>
 
 
-            </ul>
-          </nav>
-        </div>
+           </ul>
+         </nav>
+       </div>
 
-      </div>
-      <!-- /top navigation -->
+     </div>
+     <!-- /top navigation -->
 
-      <!-- page content -->
-      <div class="right_col" role="main">
-        <div class="row">
+     <!-- page content -->
+     <div class="right_col" role="main">
+      <div class="row">
 
-          <?php isset($main) ? $this->load->view($main) : null; ?>
-
-        </div>
-        <!-- footer content -->
-        <footer>
-          <div class="">
-            <p class="pull-right">© 2016 |
-              <span class="lead"> <i class="fa fa-graduate-cap"></i> SMK WIRABUANA</span>
-            </p>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        <?php isset($main) ? $this->load->view($main) : null; ?>
 
       </div>
+      <!-- footer content -->
+      <footer>
+        <div class="">
+          <p class="pull-right">© 2016 |
+            <span class="lead"> <i class="fa fa-graduate-cap"></i> SMK WIRABUANA</span>
+          </p>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+      <!-- /footer content -->
+
     </div>
+  </div>
 
-    <div id="custom_notifications" class="custom-notifications dsp_none">
-      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-      </ul>
-      <div class="clearfix"></div>
-      <div id="notif-group" class="tabbed_notifications"></div>
-    </div>
+  <div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+  </div>
 
-    <script src="<?php echo media_url() ?>/js/custom.js"></script>
-    <script src="<?php echo media_url() ?>/js/jquery.nicescroll.min.js"></script>
+  <script src="<?php echo media_url() ?>/js/custom.js"></script>
+  <script src="<?php echo media_url() ?>/js/jquery.nicescroll.min.js"></script>
 
-    <!-- dataTable -->
-    <script>
+  <!-- dataTable -->
+  <script>
           //Initiation dataTable
           $(function () {
             $('.table-init').DataTable({
@@ -199,75 +199,77 @@
               text: '<?php echo $this->session->flashdata('success') ?>'
             });
           });
-
+        </script>
+        <?php } ?>
+        <script type="text/javascript">
           
-
-            function updatingClock(selector, type) {
-    function currentDate() {
-        var currentDate = new Date;
-        var Day = currentDate.getDate();
-        if (Day < 10) {
-            Day = '0' + Day;
+          function updatingClock(selector, type) {
+            function currentDate() {
+              var currentDate = new Date;
+              var CurDate = currentDate.getDate();
+              var Day = currentDate.getDay();
+              var days = ["Minggu","Senin","Selasa","Rabu","Kamis","Jum'at","Sabtu"];
+              if (CurDate < 10) {
+                CurDate = '0' + CurDate;
         } //end if
         var Month = currentDate.getMonth() + 1;
         if (Month < 10) {
-            Month = '0' + Month;
+          Month = '0' + Month;
         } //end if
         var Year = currentDate.getFullYear();
-        var fullDate = Month + '/' + Day + '/' + Year;
+        var fullDate = days[Day] + ', ' + CurDate + ' ' + Month + ' ' + Year;
         return fullDate;
     } //end current date function
 
     function currentTime() {
-        var currentTime = new Date;
-        var Minutes = currentTime.getMinutes();
-        if (Minutes < 10) {
-            Minutes = '0' + Minutes;
-        }
-        var Hour = currentTime.getHours();
-        if (Hour > 12) {
-            Hour -= 12;
+      var currentTime = new Date;
+      var Minutes = currentTime.getMinutes();
+      if (Minutes < 10) {
+        Minutes = '0' + Minutes;
+      }
+      var Hour = currentTime.getHours();
+      if (Hour > 12) {
+        Hour -= 12;
         } //end if
         var Time = Hour + ':' + Minutes;
         if (currentTime.getHours() <= 12) {
-            Time += ' AM';
+          Time += ' AM';
         } //end if
         if (currentTime.getHours() > 12) {
-            Time += ' PM';
+          Time += ' PM';
         } //end if
         return Time;
     } // end current time function
 
 
     function updateOutput() {
-        var output;
-        if (type == 'time') {
-            output = currentTime();
-            if ($(selector).text() != output) {
-                $(selector).text(output);
+      var output;
+      if (type == 'time') {
+        output = currentTime();
+        if ($(selector).text() != output) {
+          $(selector).text(output);
             } //end if
         } //end if
         if (type == 'date') {
-            output = currentDate();
-            if ($(selector).text() != output) {
-                $(selector).text(output);
+          output = currentDate();
+          if ($(selector).text() != output) {
+            $(selector).text(output);
             } //end if
         } //end if
         if (type == 'both') {
-            output = currentDate() + ' at ' + currentTime();
-            if ($(selector).text() != output) {
-                $(selector).text(output);
+          output = currentDate() + ' at ' + currentTime();
+          if ($(selector).text() != output) {
+            $(selector).text(output);
             } //end if
         } //end if
     }//end update output function
     updateOutput();
     window.setInterval(function() {
-        updateOutput();
+      updateOutput();
     }, 1000); //run update every 1 second
 } // end updating clock function
 updatingClock('#date-time', 'both');
-        </script>
-        <?php } ?>
-      </body>
+</script>
+</body>
 
-      </html>
+</html>

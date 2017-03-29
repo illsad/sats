@@ -368,6 +368,11 @@ dark,
     margin-bottom: 5px
 }
 
+.nav.navbar-nav>li>h2 {
+    margin-top: 20px;
+    margin-right: 10px
+}
+
 body {
     color: #73879C;
     background: rgba(4,100,217,1);

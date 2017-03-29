@@ -104,47 +104,51 @@
                 </ul>
               </li>
 
+              <li>
+               <h2 class="top-calendar"><span class="fa fa-calendar"></span> <span id="date-time"></span></h2>
+             </li>
 
-            </ul>
-          </nav>
-        </div>
 
-      </div>
-      <!-- /top navigation -->
+           </ul>
+         </nav>
+       </div>
 
-      <!-- page content -->
-      <div class="right_col" role="main">
-        <div class="row">
+     </div>
+     <!-- /top navigation -->
 
-          <?php isset($main) ? $this->load->view($main) : null; ?>
+     <!-- page content -->
+     <div class="right_col" role="main">
+      <div class="row">
 
-        </div>
-        <!-- footer content -->
-        <footer>
-          <div class="">
-            <p class="pull-right">© 2016 |
-              <span class="lead"> <i class="fa fa-graduate-cap"></i> SMK WIRABUANA</span>
-            </p>
-          </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        <?php isset($main) ? $this->load->view($main) : null; ?>
 
       </div>
+      <!-- footer content -->
+      <footer>
+        <div class="">
+          <p class="pull-right">© 2016 |
+            <span class="lead"> <i class="fa fa-graduate-cap"></i> SMK WIRABUANA</span>
+          </p>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+      <!-- /footer content -->
+
     </div>
+  </div>
 
-    <div id="custom_notifications" class="custom-notifications dsp_none">
-      <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-      </ul>
-      <div class="clearfix"></div>
-      <div id="notif-group" class="tabbed_notifications"></div>
-    </div>
+  <div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+  </div>
 
-    <script src="<?php echo media_url() ?>/js/custom.js"></script>
-    <script src="<?php echo media_url() ?>/js/jquery.nicescroll.min.js"></script>
+  <script src="<?php echo media_url() ?>/js/custom.js"></script>
+  <script src="<?php echo media_url() ?>/js/jquery.nicescroll.min.js"></script>
 
-    <!-- dataTable -->
-    <script>
+  <!-- dataTable -->
+  <script>
           //Initiation dataTable
           $(function () {
             $('.table-init').DataTable({
@@ -200,6 +204,76 @@
           });
         </script>
         <?php } ?>
-      </body>
+        
+        <script type="text/javascript">
+          
+          function updatingClock(selector, type) {
+            function currentDate() {
+              var currentDate = new Date;
+              var CurDate = currentDate.getDate();
+              var Day = currentDate.getDay();
+              var days = ["Minggu","Senin","Selasa","Rabu","Kamis","Jum'at","Sabtu"];
+              if (CurDate < 10) {
+                CurDate = '0' + CurDate;
+        } //end if
+        var Month = currentDate.getMonth() + 1;
+        if (Month < 10) {
+          Month = '0' + Month;
+        } //end if
+        var Year = currentDate.getFullYear();
+        var fullDate = days[Day] + ', ' + CurDate + ' ' + Month + ' ' + Year;
+        return fullDate;
+    } //end current date function
 
-      </html>
+    function currentTime() {
+      var currentTime = new Date;
+      var Minutes = currentTime.getMinutes();
+      if (Minutes < 10) {
+        Minutes = '0' + Minutes;
+      }
+      var Hour = currentTime.getHours();
+      if (Hour > 12) {
+        Hour -= 12;
+        } //end if
+        var Time = Hour + ':' + Minutes;
+        if (currentTime.getHours() <= 12) {
+          Time += ' AM';
+        } //end if
+        if (currentTime.getHours() > 12) {
+          Time += ' PM';
+        } //end if
+        return Time;
+    } // end current time function
+
+
+    function updateOutput() {
+      var output;
+      if (type == 'time') {
+        output = currentTime();
+        if ($(selector).text() != output) {
+          $(selector).text(output);
+            } //end if
+        } //end if
+        if (type == 'date') {
+          output = currentDate();
+          if ($(selector).text() != output) {
+            $(selector).text(output);
+            } //end if
+        } //end if
+        if (type == 'both') {
+          output = currentDate() + ' at ' + currentTime();
+          if ($(selector).text() != output) {
+            $(selector).text(output);
+            } //end if
+        } //end if
+    }//end update output function
+    updateOutput();
+    window.setInterval(function() {
+      updateOutput();
+    }, 1000); //run update every 1 second
+} // end updating clock function
+updatingClock('#date-time', 'both');
+</script>
+</body>
+
+</html>

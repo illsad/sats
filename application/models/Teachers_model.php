@@ -14,8 +14,8 @@ exit('No direct script access allowed');
 class Teachers_model extends CI_Model {
 
   var $table = 'teachers';
-  var $all_column = array('teachers.teacher_id', 'teacher_nip', 'teacher_name',
-  'user_user_id',
+  var $all_column = array('teachers.teacher_id', 'teacher_nik', 'teacher_name',
+  'user_user_id','teacher_address','teacher_pob','teacher_dob','teacher_gender','teacher_nuptk','teacher_phone',
   'teacher_input_date', 'teacher_last_update'); //set all column field database
   var $order = array('teacher_last_update' => 'desc'); // default order
 
@@ -58,7 +58,8 @@ class Teachers_model extends CI_Model {
     if ($_POST['length'] != -1)
     $this->db->limit($_POST['length'], $_POST['start']);
 
-    $this->db->select('teachers.teacher_id, teacher_nip, teacher_name,
+    $this->db->select('teachers.teacher_id, teacher_nik, teacher_name,
+  user_user_id, teacher_address, teacher_pob, teacher_dob, teacher_gender, teacher_nuptk, teacher_phone,
     user_user_id,
     teacher_input_date, teacher_last_update');
     $this->db->select('user.user_full_name');
@@ -120,8 +121,8 @@ class Teachers_model extends CI_Model {
       $this->db->set('teacher_id', $data['teacher_id']);
     }
 
-    if (isset($data['teacher_nip'])) {
-      $this->db->set('teacher_nip', $data['teacher_nip']);
+    if (isset($data['teacher_nik'])) {
+      $this->db->set('teacher_nik', $data['teacher_nik']);
     }
 
     if (isset($data['teacher_name'])) {

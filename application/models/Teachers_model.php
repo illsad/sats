@@ -100,7 +100,7 @@ class Teachers_model extends CI_Model {
       $this->db->order_by('teacher_last_update', 'desc');
     }
 
-    $this->db->select('teachers.teacher_id, teacher_nip, teacher_name,
+    $this->db->select('teachers.teacher_id, teacher_nik, teacher_name,
     user_user_id,
     teacher_input_date, teacher_last_update');
     $this->db->select('user.user_full_name');

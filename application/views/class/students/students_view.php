@@ -33,7 +33,7 @@
           <tr>
             <td>No. Telepon</td>
             <td>:</td>
-            <td><?php echo $student['student_phone'] ?></td>
+            <td>0<?php echo $student['student_phone'] ?></td>
           </tr>
         </tbody>
       </table>

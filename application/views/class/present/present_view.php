@@ -3,9 +3,9 @@
     <div class="x_title">
       <h2><i class="fa fa-list"></i> Detail Kehadiran</h2>
       <ul class="nav navbar-right panel_toolbox">
-        <li><a class="btn btn-info" href="<?php echo site_url('class/presents') ?>"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</a>
+        <li><a class="btn btn-info" href="<?php echo site_url('class/present') ?>"><i class="fa fa-arrow-left"></i>&nbsp; Kembali</a>
         </li>
-        <li><a class="btn btn-success" href="<?php echo site_url('class/presents/edit/' . $present['present_id']) ?>"><i class="fa fa-edit"></i>&nbsp; Edit</a>
+        <li><a class="btn btn-success" href="<?php echo site_url('class/present/edit/' . $present['present_id']) ?>"><i class="fa fa-edit"></i>&nbsp; Edit</a>
         </li>
         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
         </li>

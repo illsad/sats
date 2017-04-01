@@ -44,7 +44,6 @@ class Students extends CI_Controller {
         $this->form_validation->set_rules('student_full_name', 'Nama Siswa', 'trim|required|xss_clean');
         $this->form_validation->set_rules('student_nip', 'NIP Siswa', 'trim|required|xss_clean');
         $this->form_validation->set_rules('student_phone', 'No Telepon Siswa', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('classes_class_id', 'Kelas', 'trim|required|xss_clean');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
@@ -56,6 +55,7 @@ class Students extends CI_Controller {
                 $params['student_input_date'] = date('Y-m-d H:i:s');
                 $params['student_is_deleted'] = false;
                 $params['student_is_resign'] = false;
+                $params['classes_class_id'] = $this->input->post('classes_class_id');
             }
 
             $params['user_user_id'] = $this->session->userdata('user_id');
@@ -63,7 +63,6 @@ class Students extends CI_Controller {
             $params['student_full_name'] = $this->input->post('student_full_name');
             $params['student_phone'] = $this->input->post('student_phone');
             $params['student_nip'] = $this->input->post('student_nip');
-            $params['classes_class_id'] = $this->input->post('classes_class_id');
             $status = $this->Students_model->add($params);
 
 

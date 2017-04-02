@@ -42,7 +42,7 @@ class Teachers extends CI_Controller {
     public function add($id = NULL) {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('teacher_name', 'Nama Guru', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('teacher_nip', 'NIP Guru', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('teacher_nik', 'NIK Guru', 'trim|required|xss_clean');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
@@ -57,7 +57,7 @@ class Teachers extends CI_Controller {
             $params['user_user_id'] = $this->session->userdata('user_id');
             $params['teacher_last_update'] = date('Y-m-d H:i:s');
             $params['teacher_name'] = $this->input->post('teacher_name');
-            $params['teacher_nip'] = $this->input->post('teacher_nip');
+            $params['teacher_nik'] = $this->input->post('teacher_nik');
             $status = $this->Teachers_model->add($params);
 
 
@@ -117,7 +117,7 @@ class Teachers extends CI_Controller {
             $no++;
             $row = array();
             $row[] = $key->teacher_name;
-            $row[] = $key->teacher_nip;
+            $row[] = $key->teacher_nik;
 
             //add html for action
             $row[] = '<a class="btn btn-warning btn-xs" href="'.site_url().'admin/teachers/detail/'.$key->teacher_id.'" ><span class="glyphicon glyphicon-eye-open"></span></a><a class="btn btn-success btn-xs" href="'.site_url().'admin/teachers/edit/'.$key->teacher_id.'" ><span class="glyphicon glyphicon-edit"></span></a>' ;

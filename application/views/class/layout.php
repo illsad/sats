@@ -101,7 +101,10 @@
               </li>
 
               <li>
-               <h2 class="top-calendar"><span class="fa fa-calendar"></span> <span id="date-time"></span></h2>
+               <h2 class="top-calendar"><span class="fa fa-calendar"></span> 
+               <span class="hidden-xs" id="date-time"></span>
+               <span class="hidden-sm hidden-md hidden-lg" id="date"></span>
+               </h2>
              </li>
 
 
@@ -216,7 +219,7 @@
           Month = '0' + Month;
         } //end if
         var Year = currentDate.getFullYear();
-        var fullDate = days[Day] + ', ' + CurDate + ' ' + Month + ' ' + Year;
+        var fullDate = days[Day] + ', ' + CurDate + '/' + Month + '/' + Year;
         return fullDate;
     } //end current date function
 
@@ -268,6 +271,7 @@
     }, 1000); //run update every 1 second
 } // end updating clock function
 updatingClock('#date-time', 'both');
+updatingClock('#date', 'date');
 </script>
 </body>
 

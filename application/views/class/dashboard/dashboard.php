@@ -30,10 +30,12 @@
               <td>{{item.student_nip}}</td>
               <td>{{item.student_full_name}}</td>
               <td>
-              <button ng-disabled="item.present_type == 'Hadir'" ng-click="inputType('Hadir', item.present_id)" class="btn btn-xs btn-success"><span ng-show="item.present_type == 'Hadir'" class="fa fa-check"></span> Hadir</button>
-              <button ng-disabled="item.present_type == 'Izin'" ng-click="inputType('Izin', item.present_id)" class="btn btn-xs btn-info"><span ng-show="item.present_type == 'Izin'" class="fa fa-check"></span> Izin</button>
-              <button ng-disabled="item.present_type == 'Sakit'" ng-click="inputType('Sakit', item.present_id)" class="btn btn-xs btn-warning"><span ng-show="item.present_type == 'Sakit'" class="fa fa-check"></span> Sakit</button>
-              <button ng-disabled="item.present_type == 'Alfa'" ng-click="inputType('Alfa', item.present_id)" class="btn btn-xs btn-danger"><span ng-show="item.present_type == 'Alfa'" class="fa fa-check"></span> Alfa</button>
+              <select class="form-control" ng-class="[item.present_type]" ng-model="presentInput" ng-init="presentInput = item.present_type" ng-change="inputType(presentInput, item.present_id)">
+                <option value="Hadir">Hadir</option>
+                <option value="Izin">Izin</option>
+                <option value="Sakit">Sakit</option>
+                <option value="Alfa">Alfa</option>
+              </select>
               </td>
           </tr>
       </tbody>

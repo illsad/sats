@@ -62,6 +62,7 @@ class Api extends CI_Controller {
         $params['present_month'] = date('m');
         $params['present_date'] = date('Y-m-d');
         $params['present_type'] = 'Hadir';
+        $params['classes_class_id'] = $id;
         $params['present_input_date'] = date('Y-m-d H:i');
         $params['present_last_update'] = date('Y-m-d H:i');
         $present_id = array();

@@ -101,7 +101,7 @@ class Present_model extends CI_Model {
     }
 
     if (isset($params['class'])) {
-      $this->db->where('students.classes_class_id', $params['class']);
+      $this->db->where('present.classes_class_id', $params['class']);
     }
 
     if (isset($params['level'])) {
@@ -172,6 +172,10 @@ class Present_model extends CI_Model {
 
     if (isset($data['present_type'])) {
       $this->db->set('present_type', $data['present_type']);
+    }
+
+    if (isset($data['classes_class_id'])) {
+      $this->db->set('classes_class_id', $data['classes_class_id']);
     }
 
     if (isset($data['present_description'])) {

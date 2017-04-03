@@ -16,14 +16,49 @@
       <table class="table table-striped">
         <tbody>
           <tr>
-            <td>NIP Guru</td>
+            <td>NIK Guru</td>
             <td>:</td>
-            <td><?php echo $teacher['teacher_nip'] ?></td>
+            <td><?php echo $teacher['teacher_nik'] ?></td>
+          </tr>
+          <tr>
+            <td>NUPTK</td>
+            <td>:</td>
+            <td><?php echo $teacher['teacher_nuptk'] ?></td>
           </tr>
           <tr>
             <td>Nama Guru</td>
             <td>:</td>
             <td><?php echo $teacher['teacher_name'] ?></td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td><?php echo $teacher['teacher_address'] ?></td>
+          </tr>
+          <tr>
+            <td>Tempat Lahir</td>
+            <td>:</td>
+            <td><?php echo $teacher['teacher_pob'] ?></td>
+          </tr>
+          <tr>
+            <td>Tanggal Lahir</td>
+            <td>:</td>
+            <td><?php echo $teacher['teacher_dob'] ?></td>
+          </tr>
+          <tr>
+            <td>Gender</td>
+            <td>:</td>
+            <td><?php echo $teacher['teacher_gender'] ?></td>
+          </tr>
+          <tr>
+            <td>Agama</td>
+            <td>:</td>
+            <td><?php echo $teacher['teacher_religion'] ?></td>
+          </tr>
+          <tr>
+            <td>Telephone</td>
+            <td>:</td>
+            <td><?php echo $teacher['teacher_phone'] ?></td>
           </tr>
           <tr>
             <td>Penulis</td>

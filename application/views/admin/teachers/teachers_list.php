@@ -17,7 +17,7 @@
           <thead>
             <tr>
               <th class="controls" align="center">NAMA GURU</th>
-              <th class="controls" align="center">NIP GURU</th>
+              <th class="controls" align="center">NIK GURU</th>
               <th class="controls" align="center">AKSI</th>
             </tr>
           </thead>

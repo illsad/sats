@@ -100,6 +100,14 @@ class Present_model extends CI_Model {
       $this->db->where('present_date', $params['date']);
     }
 
+    if (isset($params['year'])) {
+      $this->db->where('present_year', $params['year']);
+    }
+
+    if (isset($params['month'])) {
+      $this->db->where('present_month', $params['month']);
+    }
+
     if (isset($params['class'])) {
       $this->db->where('present.classes_class_id', $params['class']);
     }

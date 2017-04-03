@@ -39,6 +39,7 @@ class Classes extends CI_Controller {
     $params['date_start'] = date('Y-m-d',strtotime("-30 days"));
     $params['date_end'] = date('Y-m-d');
     $data['reports'] = $this->Present_model->get($params);
+    $data['report_monthly'] = $this->Present_model->get(array('year' => date('Y'), 'month' => date('m'), 'class' => $id));
     $data['ngapp'] = 'ng-app="satsApp"';
     $data['class'] = $this->Classes_model->get(array('id' => $id));
     $data['students'] = $this->Students_model->get(array('class' => $id));

@@ -61,9 +61,11 @@
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
           <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Daftar Siswa</a>
           </li>
-          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Total Absensi / Bulan</a>
+          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Laporan Absensi <?php echo pretty_date(date('Y-m-d'), 'M Y', false) ?></a>
           </li>
-          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Diagram / Bulan</a>
+          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Total Absensi / 30 Hari</a>
+          </li>
+          <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Diagram / 30 Hari</a>
           </li>
         </ul>
         <div id="myTabContent" class="tab-content">
@@ -81,7 +83,7 @@
                   <?php foreach ($students as $student): ?>
                     <tr>
                       <td>
-                      <a href="<?php echo site_url('admin/students/detail/'.$student['student_id']) ?>">
+                        <a href="<?php echo site_url('admin/students/detail/'.$student['student_id']) ?>">
                           <b><?php echo $student['student_full_name'] ?></b>
                         </a>
                       </td>
@@ -98,6 +100,41 @@
             </div>
           </div>
           <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <tbody>
+                  <tr>
+                    <th rowspan="2"><center>NAMA</center></th>
+                    <th colspan="<?php echo date('t') ?>"><center>TANGGAL</center></th>
+                  </tr>
+                  <tr>
+                    <?php for($i=1; $i<=date('t'); $i++){ ?>
+                    <th><?php echo $i ?></th>
+                    <?php } ?>
+                  </tr>
+                  <?php foreach ($students as $row): ?>
+                    <tr>
+                      <td><?php echo $row['student_full_name'] ?></td>
+                      <?php for($i=1; $i<=date('t'); $i++){ ?>
+                      <td>
+                        <?php 
+                        foreach ($report_monthly as $report) {
+                           $date = date_format(date_create($report['present_date']), 'j');
+                          if ($i == $date AND $row['student_id'] == $report['students_student_id']):
+                            echo substr($report['present_type'], 0, 1) == 'H' ? '.' : substr($report['present_type'], 0, 1);
+                          endif;
+                        }
+                        ?>
+
+                      </td>
+                      <?php } ?>
+                    </tr>
+                  <?php endforeach ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
             <div class="table-responsive">
               <table class="table table-striped">
                 <thead>
@@ -159,7 +196,7 @@
                     </table>
                   </div>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
                   <canvas id="canvas_bar"></canvas>
                 </div>
               </div>

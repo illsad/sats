@@ -1,2 +1,1 @@
-# SATS 
-Sistem Absensi Terintergrasi Sekolah
+# SATS

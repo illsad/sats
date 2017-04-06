@@ -1,13 +1,23 @@
 <?php
 if (isset($student)) {
-  $NipValue = $student['student_nip'];
+  $NisValue = $student['student_nis'];
   $NameValue = $student['student_full_name'];
   $PhoneValue = $student['student_phone'];
   $ClassValue = $student['classes_class_id'];
+  $ReligionValue = $student['student_religion'];
+  $DobValue = $student['student_dob'];
+  $PobValue= $student['student_pob'];
+  $AddressValue = $student['student_address'];
+
 } else {
-  $NipValue = set_value('student_nip');
+  $NisValue = set_value('student_nis');
   $NameValue = set_value('student_full_name');
   $PhoneValue = set_value('student_phone');
+  $ClassValue = set_value('classes_class_id');
+  $ReligionValue = set_value('student_religion');
+  $DobValue = set_value('student_dob');
+  $PobValue= set_value('student_pob');
+  $AddressValue = set_value('student_address');
   $ClassValue = set_value('classes_class_id');
 }
 ?>
@@ -37,7 +47,7 @@ if (isset($student)) {
         <?php endif; ?>
         <div class="form-group">
           <label >NIS *</label>
-          <input name="student_nip" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NipValue; ?>">
+          <input name="student_nis" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NisValue; ?>">
         </div>
         <div class="form-group">
           <label >Nama *</label>
@@ -45,6 +55,18 @@ if (isset($student)) {
         </div>
         <div class="form-group">
           <label >No. Telepon</label>
+          <input name="student_phone" required="" placeholder="Phone" type="number" class="form-control" value="<?php echo $PhoneValue; ?>">
+        </div>
+        <div class="form-group">
+          <label >Alamat</label>
+          <input name="student_address" required="" placeholder="Alamat" type="text" class="form-control" value="<?php echo $AddresValue; ?>">
+        </div>
+        <div class="form-group">
+          <label >Tempat Lahir</label>
+          <input name="student_phone" required="" placeholder="Tempat Lahir" type="text" class="form-control" value="<?php echo $PhoneValue; ?>">
+        </div>
+        <div class="form-group">
+          <label >Tanggal Lahir</label>
           <input name="student_phone" required="" placeholder="Phone" type="number" class="form-control" value="<?php echo $PhoneValue; ?>">
         </div>
         <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>

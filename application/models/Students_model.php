@@ -3,19 +3,11 @@
 if (!defined('BASEPATH'))
 exit('No direct script access allowed');
 
-/**
-* Students Model Class
-*
-* @package     SYSCMS
-* @subpackage  Models
-* @category    Models
-* @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
-*/
 class Students_model extends CI_Model {
 
   var $table = 'students';
-  var $all_column = array('students.student_id', 'student_nip', 'student_full_name',
-  'student_phone',
+  var $all_column = array('students.student_id', 'student_nis', 'student_full_name',
+  'student_phone', 'student_pob','student_dob','student_religion','student_gender',
   'student_is_resign',
   'classes_class_id',
   'class_name',
@@ -65,7 +57,7 @@ class Students_model extends CI_Model {
     if (isset($params['class_id'])) {
       $this->db->where('classes_class_id', $params['class_id']);
     } 
-    $this->db->select('students.student_id, student_nip, student_full_name,
+    $this->db->select('students.student_id, student_nis, student_gender,student_dob, student_pob, student_religion, student_full_name,
     student_is_resign, student_is_deleted, student_phone,
     classes_class_id,
     student_input_date, student_last_update');
@@ -116,7 +108,7 @@ class Students_model extends CI_Model {
       $this->db->order_by('student_last_update', 'desc');
     }
 
-    $this->db->select('students.student_id, student_nip, student_full_name,
+    $this->db->select('students.student_id, student_nis, student_gender, student_pob, student_dob, student_religion, student_full_name,
     student_is_resign, student_is_deleted
     classes_class_id, student_phone,
     student_input_date, student_last_update');
@@ -138,8 +130,8 @@ class Students_model extends CI_Model {
       $this->db->set('student_id', $data['student_id']);
     }
 
-    if (isset($data['student_nip'])) {
-      $this->db->set('student_nip', $data['student_nip']);
+    if (isset($data['student_nis'])) {
+      $this->db->set('student_nis', $data['student_nis']);
     }
 
     if (isset($data['student_full_name'])) {
@@ -149,7 +141,18 @@ class Students_model extends CI_Model {
     if (isset($data['student_phone'])) {
       $this->db->set('student_phone', $data['student_phone']);
     }
-
+     if (isset($data['student_gender'])) {
+      $this->db->set('student_gender', $data['student_gender']);
+    }
+     if (isset($data['student_pob'])) {
+      $this->db->set('student_pob', $data['student_pob']);
+    }
+     if (isset($data['student_dob'])) {
+      $this->db->set('student_dob', $data['student_dob']);
+    }
+     if (isset($data['student_religion'])) {
+      $this->db->set('student_religion', $data['student_religion']);
+    }
     if (isset($data['student_is_resign'])) {
       $this->db->set('student_is_resign', $data['student_is_resign']);
     }

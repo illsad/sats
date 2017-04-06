@@ -3,14 +3,7 @@
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
-/**
-* Present Model Class
-*
-* @package     SYSCMS
-* @subpackage  Models
-* @category    Models
-* @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
-*/
+
 class Present_model extends CI_Model {
 
   var $table = 'present';
@@ -69,7 +62,7 @@ class Present_model extends CI_Model {
       present.user_user_id,
       students_student_id,
       present_input_date, present_last_update');
-    $this->db->select('students.student_full_name, student_nip');
+    $this->db->select('students.student_full_name, student_nis');
     $this->db->select('user.user_name');
     $this->db->select('classes.class_name, classes.class_level');
     $this->db->join('students', 'students.student_id = present.students_student_id', 'left');
@@ -144,7 +137,7 @@ class Present_model extends CI_Model {
       present.user_user_id,
       students_student_id,
       present_input_date, present_last_update');
-    $this->db->select('students.student_full_name, student_nip, students.classes_class_id');
+    $this->db->select('students.student_full_name, student_nis, students.classes_class_id');
     $this->db->select('user.user_full_name');
     $this->db->select('classes.class_name, classes.class_level');
     $this->db->join('students', 'students.student_id = present.students_student_id', 'left');

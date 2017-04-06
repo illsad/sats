@@ -4,6 +4,7 @@ if (isset($class)) {
   $LevelValue = $class['class_level'];
   $TeacherValue = $class['teacher_name'];
   $UsernameValue = $class['username'];
+  $Pob_Value = $class['']
 } else {
   $NameValue = set_value('class_name');
   $LevelValue = set_value('class_level');

@@ -61,7 +61,7 @@ foreach ($presentX as $row):
     ?>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2><i class="fa fa-bank"></i> Kelas X</h2>
@@ -118,7 +118,7 @@ foreach ($presentX as $row):
         }
         endforeach;
         ?>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2><i class="fa fa-bank"></i> Kelas XI</h2>
@@ -175,7 +175,7 @@ foreach ($presentX as $row):
         }
         endforeach;
         ?>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
                     <h2><i class="fa fa-bank"></i> Kelas XII</h2>

@@ -65,12 +65,10 @@ if (isset($teacher)) {
             <label >Gender</label>
             <div class="radio">
               <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Laki-laki"> Laki-laki
+                <input type="radio" name="teacher_gender" value="Laki-laki"> Laki-laki
               </label>
               <label class="radio-inline">
-                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Perempuan"> Perempuan
-              </label>
-              <label class="radio-inline">
+                <input type="radio" name="teacher_gender" value="Perempuan"> Perempuan
               </label>
             </div>
           </div>
@@ -79,16 +77,16 @@ if (isset($teacher)) {
           <label >Agama *</label>
           <select name="teacher_religion" class="form-control">
             <option value="">- Pilih Agama -</option>
-            <option value="Islam">Islam</option>
-            <option value="Kristen">Kristen</option>
-            <option value="Katolik">Katolik</option>
-            <option value="Hindu">Hindu</option>
-            <option value="Budha">Budha</option>
-            <option value="Kongucu">Kongucu</option>
+            <option value="Islam" <?php echo ($ReligonValue == 'Islam') ? 'selected' : '' ?>>Islam</option>
+            <option value="Kristen" <?php echo ($ReligonValue == 'Kristen') ? 'selected' : '' ?>>Kristen</option>
+            <option value="Katolik" <?php echo ($ReligonValue == 'Katolik') ? 'selected' : '' ?>>Katolik</option>
+            <option value="Hindu" <?php echo ($ReligonValue == 'Hindu') ? 'selected' : '' ?>>Hindu</option>
+            <option value="Budha" <?php echo ($ReligonValue == 'Budha') ? 'selected' : '' ?>>Budha</option>
+            <option value="Kongucu" <?php echo ($ReligonValue == 'Kongucu') ? 'selected' : '' ?>>Konghucu</option>
           </select>
         </div>
         <div calss="form-group">
-         <label >Telephone </label>
+         <label>Telephone </label>
          <input name="teacher_phone" placeholder="Telephone" type="text" class="form-control" value="<?php echo $PhoneValue; ?>">
        </div>
      </div>

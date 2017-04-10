@@ -58,6 +58,14 @@ class Teachers extends CI_Controller {
             $params['teacher_last_update'] = date('Y-m-d H:i:s');
             $params['teacher_name'] = $this->input->post('teacher_name');
             $params['teacher_nik'] = $this->input->post('teacher_nik');
+            $params['teacher_is_deleted'] = $this->input->post('teacher_is_deleted');
+            $params['teacher_nuptk'] = $this->input->post('teacher_nuptk');
+            $params['teacher_address'] = $this->input->post('teacher_address');
+            $params['teacher_religion'] = $this->input->post('teacher_religion');
+            $params['teacher_phone'] = $this->input->post('teacher_phone');
+            $params['teacher_gender'] = $this->input->post('teacher_gender');
+            $params['teacher_dob'] = $this->input->post('teacher_dob');
+            $params['teacher_pob'] = $this->input->post('teacher_pob');
             $status = $this->Teachers_model->add($params);
 
 

@@ -133,6 +133,34 @@ class Teachers_model extends CI_Model {
       $this->db->set('teacher_is_deleted', $data['teacher_is_deleted']);
     }
 
+    if (isset($data['teacher_nuptk'])) {
+      $this->db->set('teacher_nuptk', $data['teacher_nuptk']);
+    }
+
+    if (isset($data['teacher_address'])) {
+      $this->db->set('teacher_address', $data['teacher_address']);
+    }
+
+    if (isset($data['teacher_religion'])) {
+      $this->db->set('teacher_religion', $data['teacher_religion']);
+    }
+
+    if (isset($data['teacher_phone'])) {
+      $this->db->set('teacher_phone', $data['teacher_phone']);
+    }
+
+    if (isset($data['teacher_gender'])) {
+      $this->db->set('teacher_gender', $data['teacher_gender']);
+    }
+
+    if (isset($data['teacher_dob'])) {
+      $this->db->set('teacher_dob', $data['teacher_dob']);
+    }
+
+    if (isset($data['teacher_pob'])) {
+      $this->db->set('teacher_pob', $data['teacher_pob']);
+    }
+
     if (isset($data['teacher_input_date'])) {
       $this->db->set('teacher_input_date', $data['teacher_input_date']);
     }

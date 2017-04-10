@@ -1,4 +1,5 @@
 <?php
+$this->load->view('admin/datepicker');
 if (isset($student)) {
   $NisValue = $student['student_nis'];
   $NameValue = $student['student_full_name'];
@@ -59,7 +60,7 @@ if (isset($student)) {
         </div>
         <div class="form-group">
           <label >Alamat</label>
-          <input name="student_address" required="" placeholder="Alamat" type="text" class="form-control" value="<?php echo $AddresValue; ?>">
+          <textarea name="student_address" placeholder="Alamat" class="form-control"><?php echo $AddressValue; ?></textarea>
         </div>
         <div class="form-group">
           <label >Tempat Lahir</label>
@@ -67,7 +68,7 @@ if (isset($student)) {
         </div>
         <div class="form-group">
           <label >Tanggal Lahir</label>
-          <input name="student_dob" required="" placeholder="Tanggal Lahir" type="text" class="form-control" value="<?php echo $DobValue; ?>">
+          <input name="student_dob" required="" placeholder="Tanggal Lahir" class="form-control datepicker" value="<?php echo $DobValue; ?>">
         </div>
         <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>
       </div>

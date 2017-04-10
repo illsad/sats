@@ -63,11 +63,11 @@ if (isset($student)) {
         </div>
         <div class="form-group">
           <label >Tempat Lahir</label>
-          <input name="student_phone" required="" placeholder="Tempat Lahir" type="text" class="form-control" value="<?php echo $PhoneValue; ?>">
+          <input name="student_pob" required="" placeholder="Tempat Lahir" type="text" class="form-control" value="<?php echo $PobValue; ?>">
         </div>
         <div class="form-group">
           <label >Tanggal Lahir</label>
-          <input name="student_phone" required="" placeholder="Phone" type="number" class="form-control" value="<?php echo $PhoneValue; ?>">
+          <input name="student_dob" required="" placeholder="Tanggal Lahir" type="text" class="form-control" value="<?php echo $DobValue; ?>">
         </div>
         <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>
       </div>

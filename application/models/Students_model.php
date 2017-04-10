@@ -197,4 +197,11 @@ class Students_model extends CI_Model {
     $this->db->update('students');
   }
 
+  public function is_exist($field, $value)
+    {
+        $this->db->where($field, $value);        
+
+        return $this->db->count_all_results('students') > 0 ? TRUE : FALSE;
+    }
+
 }

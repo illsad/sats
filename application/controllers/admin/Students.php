@@ -66,6 +66,8 @@ class Students extends CI_Controller {
             $params['student_address'] = $this->input->post('student_address');
             $params['student_pob'] = $this->input->post('student_pob');
             $params['student_dob'] = $this->input->post('student_dob');
+            $params['student_gender'] = $this->input->post('student_gender');
+            $params['student_religion'] = $this->input->post('student_religion');
             $status = $this->Students_model->add($params);
 
 
@@ -144,6 +146,66 @@ class Students extends CI_Controller {
         );
         //output to json format
         echo json_encode($output);
+    }
+
+    // Function import
+    public function import() {
+      if ($_POST) {
+         $rows= explode("\n", $this->input->post('rows'));
+         $success = 0;
+         $failled = 0;
+         $exist = 0;
+         $nis = '';
+         foreach($rows as $row) {
+            $exp = explode("\t", $row);
+            if (count($exp) != 8) continue;
+            $nis = trim($exp[0]);
+            $arr = [ 
+               'student_nis' => trim($exp[0]),
+               'student_full_name' => trim($exp[1]),
+               'student_gender' => trim($exp[2]),
+               'student_pob' => trim($exp[3]),
+               'student_dob' => trim($exp[4]),
+               'student_religion' => trim($exp[5]),               
+               'student_address' => trim($exp[6]),               
+               'student_phone' => trim($exp[7]),
+               'classes_class_id' => trim($exp[8])
+               
+            ];
+
+            $check = $this->db
+                     ->where('student_nis', trim($exp[0]))
+                     ->count_all_results('students');
+            if ($check == 0) {
+               if ($this->db->insert('students', $arr)) {
+                  $success++;
+               } else {
+                  $failled++;
+               }
+            } else {
+               $exist++;
+            }
+         }
+         $msg = 'Sukses : ' . $success. ' baris, Gagal : '. $failled .', Duplikat : ' . $exist;
+         $this->session->set_flashdata('success', $msg);
+         redirect('admin/students/import');
+      } else {
+         $data['title'] = 'Import Data Siswa';
+         $data['main'] = 'admin/students/students_upload';
+         $data['action'] = site_url(uri_string());
+         $data['student'] = $this->data['import_students'] = TRUE;
+         $data['alert'] = $this->session->flashdata('alert');
+         $data['query'] = FALSE;
+         $data['content'] = 'students/import';
+         $this->load->view('admin/layout', $data);
+      }
+   }
+
+    public function download() {
+        $data = file_get_contents("./media/template_excel/Template_Data_students.xls");
+        $name = 'Template_Data_students.xls';
+        $this->load->helper('download');
+        force_download($name, $data);
     }
 
 }

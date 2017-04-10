@@ -155,12 +155,12 @@ class Students extends CI_Controller {
          $rows= explode("\n", $this->input->post('rows'));
          $success = 0;
          $failled = 0;
-         $exist = 0;
+         $exist = 0; 
          $nis = '';
          foreach($rows as $row) {
             $exp = explode("\t", $row);
-            if (count($exp) != 8) continue;
-            $nis = trim($exp[0]);
+            if (count($exp) != 9) continue;
+            $nis = trim($exp[0]); 
             $arr = [ 
                'student_nis' => trim($exp[0]),
                'student_full_name' => trim($exp[1]),

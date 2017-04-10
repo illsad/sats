@@ -55,11 +55,11 @@ if (isset($teacher)) {
         <div class="row">
           <div class="col-md-4 col-xs-12">
             <label >Tempat Lahir *</label>
-            <input name="teacher_pob" required="" placeholder="Tempat Lahir" type="text" class="form-control" value="<?php echo $DobValue; ?>">
+            <input name="teacher_pob" required="" placeholder="Tempat Lahir" type="text" class="form-control" value="<?php echo $PobValue; ?>">
           </div>
           <div class="col-md-4 col-xs-12">
             <label >Tanggal Lahir *</label>
-            <input name="teacher_dob" required="" placeholder="Tanggal Lahir" type="text" class="datepicker form-control f_mr_top" value="<?php echo $PobValue; ?>">
+            <input name="teacher_dob" required="" placeholder="Tanggal Lahir" type="text" class="datepicker form-control f_mr_top" value="<?php echo $DobValue; ?>">
           </div>
           <div class="col-md-4 col-xs-12">
             <label >Gender</label>

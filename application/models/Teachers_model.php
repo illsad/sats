@@ -10,7 +10,7 @@ exit('No direct script access allowed');
 * @subpackage  Models
 * @category    Models
 * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
-*/
+*/ 
 class Teachers_model extends CI_Model {
 
   var $table = 'teachers';
@@ -191,5 +191,12 @@ class Teachers_model extends CI_Model {
     $this->db->where('teacher_id', $id);
     $this->db->update('teachers');
   }
+
+  public function is_exist($field, $value)
+    {
+        $this->db->where($field, $value);        
+
+        return $this->db->count_all_results('teachers') > 0 ? TRUE : FALSE;
+    }
 
 }

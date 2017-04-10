@@ -23,6 +23,8 @@
         <ul class="nav child_menu" style="display: none">
           <li><a href="<?php echo site_url('admin/teachers') ?>">Daftar Guru</a>
           </li>
+          <li><a href="<?php echo site_url('admin/teachers/import') ?>">Upload Guru</a>
+          </li>
         </ul>
       </li>
 
@@ -43,6 +45,8 @@
       <li><a><i class="fa fa-graduation-cap"></i> Siswa <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu" style="display: none">
           <li><a href="<?php echo site_url('admin/students') ?>">Daftar Siswa</a>
+          </li>
+          <li><a href="<?php echo site_url('admin/students/import') ?>">Upload Siswa</a>
           </li>
         </ul>
       </li>

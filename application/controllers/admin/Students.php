@@ -12,6 +12,7 @@ class Students extends CI_Controller {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
         $this->load->model(array('Students_model', 'Activity_log_model'));
+        $this->load->helper('string');
         $this->load->library('upload');
     }
 

@@ -143,6 +143,65 @@ class Teachers extends CI_Controller {
         echo json_encode($output);
     }
 
+    // Import Guru
+    public function import() {
+      if ($_POST) {
+         $rows= explode("\n", $this->input->post('rows'));
+         $success = 0;
+         $failled = 0;
+         $exist = 0;
+         $nik = '';
+         foreach($rows as $row) {
+            $exp = explode("\t", $row);
+            if (count($exp) != 9) continue;
+            $nik = trim($exp[0]);
+            $arr = [ 
+               'teacher_nik' => trim($exp[0]),
+               'teacher_nuptk' => trim($exp[1]),
+               'teacher_name' => trim($exp[2]),
+               'teacher_gender' => trim($exp[3]),
+               'teacher_pob' => trim($exp[4]),
+               'teacher_dob' => trim($exp[5]),               
+               'teacher_religion' => trim($exp[6]),               
+               'teacher_address' => trim($exp[7]),
+               'teacher_phone' => trim($exp[8])
+            ];
+
+            $check = $this->db
+                     ->where('teacher_nik', trim($exp[0]))
+                     ->count_all_results('teachers');
+            if ($check == 0) {
+               if ($this->db->insert('teachers', $arr)) {
+                  $success++;
+               } else {
+                  $failled++;
+               }
+            } else {
+               $exist++;
+            }
+         }
+         $msg = 'Sukses : ' . $success. ' baris, Gagal : '. $failled .', Duplikat : ' . $exist;
+         $this->session->set_flashdata('success', $msg);
+         redirect('admin/teachers/import');
+      } else {
+         $data['title'] = 'Import Data Karyawan';
+         $data['main'] = 'admin/teachers/teachers_upload';
+         $data['action'] = site_url(uri_string());
+         $data['teachers'] = $this->data['import_teachers'] = TRUE;
+         $data['alert'] = $this->session->flashdata('alert');
+         $data['query'] = FALSE;
+         $data['content'] = 'teachers/import';
+         $this->load->view('admin/layout', $data);
+      }
+   }
+
+    public function download() {
+        $data = file_get_contents("./media/template_excel/Template_Data_teachers.xls");
+        $name = 'Template_Data_teachers.xls';
+        $this->load->helper('download');
+        force_download($name, $data);
+    }
+
 }
 
 /* End of file teachers.php */

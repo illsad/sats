@@ -59,16 +59,16 @@ if (isset($teacher)) {
           </div>
           <div class="col-xs-4">
             <label >Tanggal Lahir *</label>
-            <input name="teacher_dob" required="" placeholder="Tanggal Lahir" type="text" class="datepicker form-control f_mr_top" value="<?php echo $PobValue; ?>">
+            <input name="teacher_dob" required="" placeholder="Tang gal Lahir" type="text" class="datepicker form-control f_mr_top" value="<?php echo $PobValue; ?>">
           </div>
           <div class="col-xs-4">
             <label >Gender</label>
             <div class="radio">
               <label class="radio-inline">
-                <input type="radio" name="teacher_gender" value="Laki-laki"> Laki-laki
+                <input type="radio" name="teacher_gender" value="L" <?php echo ($GenderValue == 'L') ? 'checked' : '' ?>> Laki-laki
               </label>
               <label class="radio-inline">
-                <input type="radio" name="teacher_gender" value="Perempuan"> Perempuan
+                <input type="radio" name="teacher_gender" value="P" <?php echo ($GenderValue == 'P') ? 'checked' : '' ?>> Perempuan
               </label>
             </div>
           </div>

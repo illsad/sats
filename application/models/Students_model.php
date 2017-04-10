@@ -108,7 +108,7 @@ class Students_model extends CI_Model {
       $this->db->order_by('student_last_update', 'desc');
     }
 
-    $this->db->select('students.student_id, student_nis, student_gender, student_pob, student_dob, student_religion, student_full_name,
+    $this->db->select('students.student_id, student_nis, student_gender, student_pob, student_dob, student_religion, student_full_name, student_address,
     student_is_resign, student_is_deleted
     classes_class_id, student_phone,
     student_input_date, student_last_update');
@@ -150,6 +150,11 @@ class Students_model extends CI_Model {
      if (isset($data['student_dob'])) {
       $this->db->set('student_dob', $data['student_dob']);
     }
+
+     if (isset($data['student_address'])) {
+      $this->db->set('student_address', $data['student_address']);
+    }
+    
      if (isset($data['student_religion'])) {
       $this->db->set('student_religion', $data['student_religion']);
     }

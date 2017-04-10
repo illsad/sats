@@ -44,7 +44,7 @@ if (isset($student)) {
             <option value="<?php echo $class['class_id'] ?>" <?php echo ($ClassValue == $class['class_id'])? 'selected="selected"' : '' ?>><?php echo $class['class_level']. " ".$class['class_name'] ?></option>
             <?php endforeach ?>
           </select>
-        </div>
+        </div> 
         <?php endif; ?>
         <div class="form-group">
           <label >NIS *</label>

@@ -215,14 +215,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `students` (
   `student_id` INT NOT NULL AUTO_INCREMENT ,
-  `student_nip` VARCHAR(45) NULL ,
-  `student_full_name` VARCHAR(255) NULL ,
+  `student_nis` VARCHAR(45) NULL ,
+  `student_address` VARCHAR(255) NULL ,
   `student_phone` VARCHAR(15) NULL ,
   `student_is_resign` TINYINT(1) NULL DEFAULT 0 ,
   `classes_class_id` INT NULL ,
-  `student_is_deleted` TINYINT(1) NULL ,
+  `student_is_deleted` TINYINT(1) NULL DEFAULT 0 ,
   `student_input_date` TIMESTAMP NULL ,
   `student_last_update` TIMESTAMP NULL ,
+  `student_dob` DATE NULL ,
+  `student_religion` VARCHAR(45) NULL ,
+  `student_gender` VARCHAR(45) NULL ,
+  `student_pob` VARCHAR(45) NULL ,
+  `student_full_name` VARCHAR(45) NULL ,
   PRIMARY KEY (`student_id`) ,
   INDEX `fk_students_classes1_idx` (`classes_class_id` ASC) ,
   CONSTRAINT `fk_students_classes1`

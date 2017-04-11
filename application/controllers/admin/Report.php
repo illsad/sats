@@ -131,7 +131,7 @@ class Report extends CI_Controller {
             endforeach;
 
             $objSheet->setCellValue('A'.$cell, $no);
-            $objSheet->setCellValueExplicit('B'.$cell, $key['student_nip'],PHPExcel_Cell_DataType::TYPE_STRING);
+            $objSheet->setCellValueExplicit('B'.$cell, $key['student_nis'],PHPExcel_Cell_DataType::TYPE_STRING);
             $objSheet->setCellValue('C'.$cell, $key['student_full_name']);
             $objSheet->setCellValue('D'.$cell, $key['class_level'].' '.$key['class_name']);
             $objSheet->setCellValue('E'.$cell, $i); 

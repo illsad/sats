@@ -81,7 +81,7 @@
                 ?>
                 <tr>
                   <td><?php echo $key['student_full_name'] ?></td>
-                  <td><?php echo $key['student_nip'] ?></td>
+                  <td><?php echo $key['student_nis'] ?></td>
                   <td><?php echo $key['class_level'].' '.$key['class_name'] ?></td>
                   <td><?php echo $i ?></td>
                   <td><?php echo $s ?></td>

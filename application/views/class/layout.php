@@ -6,7 +6,7 @@
   <!-- Meta, title, CSS, favicons, etc. -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
   <title>SATS WIRABUANA <?php echo isset($title) ? ' | ' . $title : null; ?></title>
   <link rel="icon" href="<?php echo media_url('images/logo.png'); ?>" type="image/x-icon">
@@ -123,10 +123,10 @@
 
       </div>
       <!-- footer content -->
-      <footer>
+       <footer>
         <div class="">
-          <p class="pull-right">© 2016 |
-            <span class="lead"> <i class="fa fa-graduate-cap"></i> SMK WIRABUANA</span>
+          <p class="pull-right">&copy; <script>document.write(new Date().getFullYear())</script> |
+            <span><i class="fa fa-graduation-cap"></i> SMK WIRABUANA</span>
           </p>
         </div>
         <div class="clearfix"></div>

@@ -149,6 +149,10 @@
                 </thead>
                 <tbody>
                   <?php 
+                  $varStudents = array();
+                  $varIzin = array();
+                  $varSakit = array();
+                  $varAlfa = array();
                   $i = 0;
                   $s = 0;
                   $a = 0;

@@ -195,13 +195,6 @@ class Teachers extends CI_Controller {
       }
    }
 
-    public function download() {
-        $data = file_get_contents("./media/template_excel/Template_Data_teachers.xls");
-        $name = 'Template_Data_teachers.xls';
-        $this->load->helper('download');
-        force_download($name, $data);
-    }
-
 }
 
 /* End of file teachers.php */

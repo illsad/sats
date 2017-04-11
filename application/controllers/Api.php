@@ -24,6 +24,15 @@ class Api extends CI_Controller {
         ->set_output(json_encode($res));
     }
     
+    public function getTeacher() {
+        $this->load->model('Teachers_model');
+        $res = $this->Teachers_model->get();
+
+        $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode($res));
+    }
+    
     public function getStudentByClass($id = NULL) {
         $this->load->model('Student_model');
         $res = $this->Student_model->get(array('class_id' => $id));

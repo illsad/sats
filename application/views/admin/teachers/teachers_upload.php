@@ -11,7 +11,7 @@
 
                        <body><br>
                         <h4>Petunjuk Singkat</h4>
-                        <p>Penginputan data Guru bisa dilakukan dengan mengcopy data dari file Ms. Excel. Format file excel harus sesuai kebutuhan aplikasi. Silahkan download formatnya <a href="<?=site_url('admin/teachers/download');?>"><span class="label label-success">Disini</span></a>
+                        <p>Penginputan data Guru bisa dilakukan dengan mengcopy data dari file Ms. Excel. Format file excel harus sesuai kebutuhan aplikasi. Silahkan download formatnya <a href="<?php echo media_url('template_excel/Teacher_template.xls'); ?>"><span class="label label-success">Disini</span></a>
                             <br><br>
                             <strong>CATATAN :</strong>
                             <ol>
@@ -32,7 +32,7 @@
                         <div class="form-group">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-success btn-sm btn-flat"><i class="fa fa-save"></i> Import</button>
-                                <a href="<?=site_url('teachers');?>" class="btn btn-default btn-sm btn-flat"><i class="fa fa-angle-double-left"></i> KEMBALI</a>
+                                <a href="<?php echo site_url('admin/teachers');?>" class="btn btn-default btn-sm btn-flat"><i class="fa fa-angle-double-left"></i> KEMBALI</a>
                             </div>
                         </div>
                     </div>

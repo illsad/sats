@@ -29,16 +29,23 @@
   <link href="<?php echo media_url() ?>/css/custom.css" rel="stylesheet">
 
   <script src="<?php echo media_url() ?>/js/jquery-2.2.3.min.js"></script>
+  <script src="<?php echo media_url() ?>/js/jquery-ui.min.js"></script>
   <script src="<?php echo media_url() ?>/js/bootstrap.min.js"></script>
   <script src="<?php echo media_url() ?>/js/jquery.dataTables.min.js"></script>
   <script src="<?php echo media_url() ?>/js/dataTables.bootstrap.min.js"></script>
-  <script src="<?php echo media_url() ?>/js/jquery-ui.min.js"></script>
-  <script src="<?php echo media_url(); ?>/js/angular.min.js"></script>
   <script src="<?php echo media_url(); ?>/js/Chart.min.js"></script>
   <script src="<?php echo media_url(); ?>/js/mm.js"></script>
   <!-- Notyfy JS -->
   <script src="<?php echo media_url() ?>/js/jquery.notyfy.js"></script>
-
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <!-- Angular JS-->
+  <script src="<?php echo media_url() ?>/js/angular.min.js"></script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+      $.widget.bridge('uibutton', $.ui.button);
+    })
+  </script>
   <!--[if lt IE 9]>
   <script src="../assets/js/ie8-responsive-file-warning.js"></script>
   <![endif]-->
@@ -100,54 +107,54 @@
                     </center>
                   </li>
                 </ul>  
-            </li>
-            <li>
-             <h2 class="top-calendar">
-               <span class="fa fa-calendar hidden-xs"></span>
-               <span class="hidden-xs" id="date-time"></span>
-               <span class="hidden-sm hidden-md hidden-lg" id="date"></span>
-             </h2>
-           </li>
-         </ul>
-       </nav>
+              </li>
+              <li>
+               <h2 class="top-calendar">
+                 <span class="fa fa-calendar hidden-xs"></span>
+                 <span class="hidden-xs" id="date-time"></span>
+                 <span class="hidden-sm hidden-md hidden-lg" id="date"></span>
+               </h2>
+             </li>
+           </ul>
+         </nav>
+       </div>
+
      </div>
+     <!-- /top navigation -->
 
-   </div>
-   <!-- /top navigation -->
+     <!-- page content -->
+     <div class="right_col" role="main">
+      <div class="row">
 
-   <!-- page content -->
-   <div class="right_col" role="main">
-    <div class="row">
+        <?php isset($main) ? $this->load->view($main) : null; ?>
 
-      <?php isset($main) ? $this->load->view($main) : null; ?>
+      </div>
+      <!-- footer content -->
+      <footer>
+        <div class="">
+          <p class="pull-right">&copy; <script>document.write(new Date().getFullYear())</script> |
+            <span><i class="fa fa-graduation-cap"></i> SMK WIRABUANA</span>
+          </p>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+      <!-- /footer content -->
 
     </div>
-    <!-- footer content -->
-    <footer>
-      <div class="">
-        <p class="pull-right">&copy; <script>document.write(new Date().getFullYear())</script> |
-          <span><i class="fa fa-graduation-cap"></i> SMK WIRABUANA</span>
-        </p>
-      </div>
-      <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
-
   </div>
-</div>
 
-<div id="custom_notifications" class="custom-notifications dsp_none">
-  <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
-  </ul>
-  <div class="clearfix"></div>
-  <div id="notif-group" class="tabbed_notifications"></div>
-</div>
+  <div id="custom_notifications" class="custom-notifications dsp_none">
+    <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+    </ul>
+    <div class="clearfix"></div>
+    <div id="notif-group" class="tabbed_notifications"></div>
+  </div>
 
-<script src="<?php echo media_url() ?>/js/custom.js"></script>
-<script src="<?php echo media_url() ?>/js/jquery.nicescroll.min.js"></script>
+  <script src="<?php echo media_url() ?>/js/custom.js"></script>
+  <script src="<?php echo media_url() ?>/js/jquery.nicescroll.min.js"></script>
 
-<!-- dataTable -->
-<script>
+  <!-- dataTable -->
+  <script>
           //Initiation dataTable
           $(function () {
             $('.table-init').DataTable({

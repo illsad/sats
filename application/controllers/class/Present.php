@@ -11,19 +11,24 @@ class Present extends CI_Controller {
         if ($this->session->userdata('logged_class') == NULL) {
             header("Location:" . site_url('class/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Present_model', 'Activity_log_model'));
+        $this->load->model(array('Present_model', 'Activity_log_model', 'Classes_model', 'Students_model'));
         $this->load->library('upload');
     }
 
     // Classes view in list
     public function index($offset = NULL) {
-        $this->load->library('pagination');
-        $data['present'] = $this->Present_model->get(array('limit' => 10, 'offset' => $offset));
-        $config['base_url'] = site_url('class/present/index');
-        $config['total_rows'] = count($this->Present_model->get());
-        $this->pagination->initialize($config);
-
+        $id = $this->session->userdata('class_id');
         $data['title'] = 'Kehadiran';
+
+        $params['class'] = $id;
+        $params['date_start'] = date('Y-m-d',strtotime("-30 days"));
+        $params['date_end'] = date('Y-m-d');
+        $data['reports'] = $this->Present_model->get($params);
+        $data['report_monthly'] = $this->Present_model->get(array('year' => date('Y'), 'month' => date('m'), 'class' => $id));
+        $data['ngapp'] = 'ng-app="satsApp"';
+        $data['class'] = $this->Classes_model->get(array('id' => $id));
+        $data['students'] = $this->Students_model->get(array('class' => $id));
+        $data['title'] = 'Detail Kelas';
         $data['main'] = 'class/present/present_list';
         $this->load->view('class/layout', $data);
     }
@@ -61,7 +66,7 @@ class Present extends CI_Controller {
             "recordsTotal" => $this->Present_model->count_all(),
             "recordsFiltered" => $this->Present_model->count_filtered(),
             "data" => $data,
-        );
+            );
         //output to json format
         echo json_encode($output);
     }

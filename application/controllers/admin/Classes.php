@@ -104,6 +104,7 @@ class Classes extends CI_Controller {
       if (!is_null($id)) {
         $data['class'] = $this->Classes_model->get(array('id' => $id));
       }
+      $data['ngapp'] = 'ng-app="satsApp"';
       $data['title'] = $data['operation'] . ' Kelas';
       $data['teachers'] = $this->Teachers_model->get();
       $data['main'] = 'admin/classes/classes_add';

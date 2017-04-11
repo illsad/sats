@@ -31,29 +31,24 @@
             <td><?php echo $teacher['teacher_name'] ?></td>
           </tr>
           <tr>
-            <td>Alamat</td>
+            <td>Tempat, Tanggal Lahir</td>
             <td>:</td>
-            <td><?php echo $teacher['teacher_address'] ?></td>
+            <td><?php echo $teacher['teacher_pob'] .','.' '.pretty_date($teacher['teacher_dob'],'d F Y',false) ?></td>
           </tr>
           <tr>
-            <td>Tempat Lahir</td>
+            <td>Jenis Kelamin</td>
             <td>:</td>
-            <td><?php echo $teacher['teacher_pob'] ?></td>
-          </tr>
-          <tr>
-            <td>Tanggal Lahir</td>
-            <td>:</td>
-            <td><?php echo $teacher['teacher_dob'] ?></td>
-          </tr>
-          <tr>
-            <td>Gender</td>
-            <td>:</td>
-            <td><?php echo $teacher['teacher_gender'] ?></td>
+            <td><?php echo ($teacher['teacher_gender'] == 'L') ? 'Laki-laki' : 'Perempuan' ?></td>
           </tr>
           <tr>
             <td>Agama</td>
             <td>:</td>
             <td><?php echo $teacher['teacher_religion'] ?></td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td><?php echo $teacher['teacher_address'] ?></td>
           </tr>
           <tr>
             <td>Telephone</td>

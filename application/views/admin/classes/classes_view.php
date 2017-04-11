@@ -1,3 +1,6 @@
+<?php 
+$this->load->view('admin/datepicker');
+?>
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
@@ -252,18 +255,58 @@
             <h4 class="modal-title"><b><span class="fa fa-users"></span> Tambah Siswa</b></h4>
           </div>
           <div class="modal-body">
-            <div class="form-group">
-              <label >NIS *</label>
-              <input name="student_nis" required="" placeholder="NIS" type="text" class="form-control">
-            </div>
-            <div class="form-group">
-              <label >Nama *</label>
-              <input name="student_full_name" required="" placeholder="Nama" type="text" class="form-control">
-            </div>
-            <div class="form-group">
-              <label >No. Telepon</label>
-              <input name="student_phone" required="" placeholder="Phone" type="number" class="form-control">
-            </div>
+            <div class="col-sm-12 col-md-12">
+              <div class="form-group"> 
+                <label >NIS  <i data-toggle="tooltip" title="Wajib diisi">*</i></label>
+                <input name="student_nis"  required="" placeholder="NIS" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label >Nama <i data-toggle="tooltip" title="Wajib diisi">*</i></label>
+                <input name="student_full_name" required="" placeholder="Nama" type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label >Alamat  </label>
+                <input name="student_address" placeholder="Alamat" type="text" class="form-control">
+              </div>
+              <div class="row">
+                <div class="col-md-4 col-xs-12">
+                  <label >Tempat Lahir <i data-toggle="tooltip" title="Wajib diisi">*</i></label>
+                  <input name="student_pob" required="" placeholder="Tempat Lahir" type="text" class="form-control">
+                </div>
+                <div class="col-md-4 col-xs-12">
+                  <label >Tanggal Lahir <i data-toggle="tooltip" title="Wajib diisi">*</i></label>
+                  <input name="student_dob" required="" placeholder="Tanggal Lahir" type="text" class="datepicker form-control f_mr_top">
+                </div>
+                <div class="col-md-4 col-xs-12">
+                  <label >Jenis Kelamin <i data-toggle="tooltip" title="Wajib diisi">*</i></label>
+                  <div class="radio">
+                    <label class="radio-inline">
+                      <input type="radio" required=""  name="student_gender" value="L"> Laki-laki
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" required="" name="student_gender" value="P"> Perempuan
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label >Agama <i data-toggle="tooltip" title="Wajib diisi">*</i></label>
+                <select name="student_religion" required=""  class="form-control">
+                  <option value="">- Pilih Agama -</option>
+                  <option value="Islam">Islam</option>
+                  <option value="Kristen">Kristen</option>
+                  <option value="Katolik">Katolik</option>
+                  <option value="Hindu">Hindu</option>
+                  <option value="Budha">Budha</option>
+                  <option value="Kongucu">Konghucu</option>
+                </select>
+              </div>
+              <div calss="form-group">
+               <label>Telephone </label>
+               <input name="student_phone" placeholder="Telephone" type="text" class="form-control">
+             </div>
+           </div>
+           <div class="form-group">
             <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>
           </div>
 

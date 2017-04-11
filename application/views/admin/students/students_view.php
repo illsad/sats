@@ -23,12 +23,32 @@
           <tr>
             <td>NIS Siswa</td>
             <td>:</td>
-            <td><?php echo $student['student_nip'] ?></td>
+            <td><?php echo $student['student_nis'] ?></td>
           </tr>
           <tr>
             <td>Nama Siswa</td>
             <td>:</td>
             <td><?php echo $student['student_full_name'] ?></td>
+          </tr>
+          <tr>
+            <td>Jenis Kelamin</td>
+            <td>:</td>
+            <td><?php echo ($student['student_gender'] == 'L') ? 'Laki-laki' : 'Perempuan' ?></td>
+          </tr>
+          <tr>
+            <td>Tempat, Tanggal Lahir </td>
+            <td>:</td>
+            <td><?php echo $student['student_pob'] . ','.' '.pretty_date($student['student_dob'], 'd F Y',false) ?></td>
+          </tr>
+          <tr>
+            <td>Agama</td>
+            <td>:</td>
+            <td><?php echo $student['student_religion'] ?></td>
+          </tr>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td><?php echo $student['student_address'] ?></td>
           </tr>
           <tr>
             <td>No. Telepon</td>

@@ -46,8 +46,6 @@
         <ul class="nav child_menu" style="display: none">
           <li><a href="<?php echo site_url('admin/students') ?>">Daftar Siswa</a>
           </li>
-          <li><a href="<?php echo site_url('admin/students/import') ?>">Upload Siswa</a>
-          </li>
         </ul>
       </li>
 

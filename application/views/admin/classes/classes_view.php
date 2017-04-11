@@ -67,6 +67,8 @@
           </li>
           <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Diagram / 30 Hari</a>
           </li>
+          <li role="presentation" class=""><a href="#tab_content5" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Upload Data Siswa</a>
+          </li>
         </ul>
         <div id="myTabContent" class="tab-content">
           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
@@ -88,7 +90,7 @@
                         </a>
                       </td>
                       <td>
-                        <?php echo $student['student_nip'] ?>
+                        <?php echo $student['student_nis'] ?>
                       </td>
                       <td>
                         <?php echo $student['student_phone'] ?>
@@ -119,138 +121,170 @@
                       <td>
                         <?php 
                         foreach ($report_monthly as $report) {
-                           $date = date_format(date_create($report['present_date']), 'j');
-                          if ($i == $date AND $row['student_id'] == $report['students_student_id']):
-                            echo substr($report['present_type'], 0, 1) == 'H' ? '.' : substr($report['present_type'], 0, 1);
-                          endif;
-                        }
-                        ?>
-
-                      </td>
-                      <?php } ?>
-                    </tr>
-                  <?php endforeach ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th class="controls" align="center">NAMA SISWA</th>
-                    <th class="controls" align="center">NIP</th>
-                    <th class="controls" align="center">KELAS</th>
-                    <th class="controls" align="center">IZIN</th>
-                    <th class="controls" align="center">SAKIT</th>
-                    <th class="controls" align="center">ALFA</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php 
-                  $varStudents = array();
-                  $varIzin = array();
-                  $varSakit = array();
-                  $varAlfa = array();
-                  $i = 0;
-                  $s = 0;
-                  $a = 0;
-                  $x = 0;
-                  foreach ($students as $key):
-                    foreach ($reports as $row): 
-                      if($key['student_id'] == $row['students_student_id']){
-                        switch ($row['present_type']) {
-                          case 'Izin':
-                          $i++;
-                          break;
-
-                          case 'Sakit':
-                          $s++;
-                          break;
-
-                          case 'Alfa':
-                          $a++;
-                          break;
-                        }
+                         $date = date_format(date_create($report['present_date']), 'j');
+                         if ($i == $date AND $row['student_id'] == $report['students_student_id']):
+                          echo substr($report['present_type'], 0, 1) == 'H' ? '.' : substr($report['present_type'], 0, 1);
+                        endif;
                       }
+                      ?>
+
+                    </td>
+                    <?php } ?>
+                  </tr>
+                <?php endforeach ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th class="controls" align="center">NAMA SISWA</th>
+                  <th class="controls" align="center">NIS</th>
+                  <th class="controls" align="center">KELAS</th>
+                  <th class="controls" align="center">IZIN</th>
+                  <th class="controls" align="center">SAKIT</th>
+                  <th class="controls" align="center">ALFA</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php 
+                $varStudents = array();
+                $varIzin = array();
+                $varSakit = array();
+                $varAlfa = array();
+                $i = 0;
+                $s = 0;
+                $a = 0;
+                $x = 0;
+                foreach ($students as $key):
+                  foreach ($reports as $row): 
+                    if($key['student_id'] == $row['students_student_id']){
+                      switch ($row['present_type']) {
+                        case 'Izin':
+                        $i++;
+                        break;
+
+                        case 'Sakit':
+                        $s++;
+                        break;
+
+                        case 'Alfa':
+                        $a++;
+                        break;
+                      }
+                    }
+                    endforeach;
+                    ?>
+                    <tr>
+                      <td><a href="<?php echo site_url('admin/students/detail/'.$key['student_id']) ?>">
+                        <b><?php echo $key['student_full_name'] ?></b></a></td>
+                        <td><?php echo $key['student_nis'] ?></td>
+                        <td><?php echo $key['class_level'].' '.$key['class_name'] ?></td>
+                        <td><?php echo $i ?></td>
+                        <td><?php echo $s ?></td>
+                        <td><?php echo $a ?></td>
+                      </tr>
+                      <?php 
+                      $varStudents[$x] = $key['student_full_name'];
+                      $varIzin[$x] = $i;
+                      $varSakit[$x] = $s;
+                      $varAlfa[$x] = $a;
+                      $i = 0;
+                      $s = 0;
+                      $a = 0;
+                      $x++;
                       endforeach;
                       ?>
-                      <tr>
-                        <td><a href="<?php echo site_url('admin/students/detail/'.$key['student_id']) ?>">
-                          <b><?php echo $key['student_full_name'] ?></b></a></td>
-                          <td><?php echo $key['student_nip'] ?></td>
-                          <td><?php echo $key['class_level'].' '.$key['class_name'] ?></td>
-                          <td><?php echo $i ?></td>
-                          <td><?php echo $s ?></td>
-                          <td><?php echo $a ?></td>
-                        </tr>
-                        <?php 
-                        $varStudents[$x] = $key['student_full_name'];
-                        $varIzin[$x] = $i;
-                        $varSakit[$x] = $s;
-                        $varAlfa[$x] = $a;
-                        $i = 0;
-                        $s = 0;
-                        $a = 0;
-                        $x++;
-                        endforeach;
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
+                    </tbody>
+                  </table>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
-                  <canvas id="canvas_bar"></canvas>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                <canvas id="canvas_bar"></canvas>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="tab_content5" aria-labelledby="profile-tab">
+                <div class="box-body">
+                 <h1><i class="fa fa-file-excel-o text-green"></i> Upload Data Siswa</h1>
+
+                 <body><br>
+                  <h4>Petunjuk Singkat</h4>
+                  <p>Penginputan data Siswa bisa dilakukan dengan mengcopy data dari file Ms. Excel. Format file excel harus sesuai kebutuhan aplikasi. Silahkan download formatnya <a href="<?php echo media_url('template_excel/Student_template.xls'); ?>"><span class="label label-success">Disini</span></a>
+                    <br><br>
+                    <strong>CATATAN :</strong>
+                    <ol>
+                      <li>Pengisian jenis data <strong>TANGGAL</strong>  diisi dengan format <strong>YYYY-MM-DD</strong> Contoh <strong>2017-12-21</strong><br> Cara ubah : blok semua tanggal pilih format cell di excel ganti dengan format date pilih yang tahunnya di depan</li>  
+                    </ol>
+                  </p>
+                </div>
+                <br>
+                <div class="form-body">
+                  <?php echo form_open_multipart(site_url('admin/classes/import/'.$class['class_id'])) ?>
+                  <div class="form-body">
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <textarea placeholder="Copy data yang akan dimasukan dari file excel, dan paste disini" rows="10" class="form-control" name="rows"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-12">
+                    <button type="submit" class="btn btn-success btn-sm btn-flat"><i class="fa fa-save"></i> Import</button>
+                    </div>
+                  </div>
+                  <?php echo form_close() ?>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-          <?php echo form_open('admin/classes/addStudent/' . $class['class_id']); ?>
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title"><b><span class="fa fa-users"></span> Tambah Siswa</b></h4>
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <?php echo form_open('admin/classes/addStudent/' . $class['class_id']); ?>
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><b><span class="fa fa-users"></span> Tambah Siswa</b></h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label >NIS *</label>
+              <input name="student_nis" required="" placeholder="NIS" type="text" class="form-control">
             </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label >NIP *</label>
-                <input name="student_nip" required="" placeholder="NIP" type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label >Nama *</label>
-                <input name="student_full_name" required="" placeholder="Nama" type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                <label >No. Telepon</label>
-                <input name="student_phone" required="" placeholder="Phone" type="number" class="form-control">
-              </div>
-              <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>
+            <div class="form-group">
+              <label >Nama *</label>
+              <input name="student_full_name" required="" placeholder="Nama" type="text" class="form-control">
             </div>
-
-            <div class="modal-footer">
-              <a><button style="float: right;margin-left: 10px" type="button" class="btn btn-default" data-dismiss="modal">Batal</button></a>
-
-              <button type="submit" class="btn btn-success"> Submit</button>
+            <div class="form-group">
+              <label >No. Telepon</label>
+              <input name="student_phone" required="" placeholder="Phone" type="number" class="form-control">
             </div>
-            <?php echo form_close(); ?>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
+            <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>
+          </div>
 
-      <script>
-        var app = angular.module("satsApp", []);
-        app.controller('reportCtrl', function ($scope, $http) {
-          $scope.base_url = "<?php echo site_url(); ?>";
+          <div class="modal-footer">
+            <a><button style="float: right;margin-left: 10px" type="button" class="btn btn-default" data-dismiss="modal">Batal</button></a>
 
-          $scope.classes = [];
+            <button type="submit" class="btn btn-success"> Submit</button>
+          </div>
+          <?php echo form_close(); ?>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
-          $scope.loadClass = function(id) {
+    <script>
+      var app = angular.module("satsApp", []);
+      app.controller('reportCtrl', function ($scope, $http) {
+        $scope.base_url = "<?php echo site_url(); ?>";
+
+        $scope.classes = [];
+
+        $scope.loadClass = function(id) {
             // Get Classes by level
             var url = $scope.base_url + 'api/getClassByLevel/' + id;
             $http.get(url).then(function(response) {
@@ -264,27 +298,27 @@
           }
 
         });
-        app.directive('integer', function(){
-          return {
-            require: 'ngModel',
-            link: function(scope, ele, attr, ctrl){
-              ctrl.$parsers.unshift(function(viewValue){
-                return parseInt(viewValue, 10);
-              });
-            }
-          };
-        });
+      app.directive('integer', function(){
+        return {
+          require: 'ngModel',
+          link: function(scope, ele, attr, ctrl){
+            ctrl.$parsers.unshift(function(viewValue){
+              return parseInt(viewValue, 10);
+            });
+          }
+        };
+      });
 
-        var ctx = document.getElementById("canvas_bar");
-        var myChart = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: [<?php foreach ($varStudents as $key => $value) {
-              echo '"'.$value.'",';
-            }  ?>],
-            datasets: [
-            {
-              label:'Izin',
+      var ctx = document.getElementById("canvas_bar");
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [<?php foreach ($varStudents as $key => $value) {
+            echo '"'.$value.'",';
+          }  ?>],
+          datasets: [
+          {
+            label:'Izin',
                     backgroundColor: "#26B99A", //rgba(220,220,220,0.5)
                     strokeColor: "#26B99A", //rgba(220,220,220,0.8)
                     highlightFill: "#36CAAB", //rgba(220,220,220,0.75)

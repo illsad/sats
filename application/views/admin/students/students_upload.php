@@ -35,8 +35,8 @@
                                 <a href="<?=site_url('students');?>" class="btn btn-default btn-sm btn-flat"><i class="fa fa-angle-double-left"></i> KEMBALI</a>
                             </div>
                         </div>
-                    </div>
                     <?php echo form_close() ?>
+                    </div>
                 </div>
 
                     </section>

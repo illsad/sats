@@ -23,7 +23,7 @@
           <tr>
             <td>NIS Siswa</td>
             <td>:</td>
-            <td><?php echo $student['student_nip'] ?></td>
+            <td><?php echo $student['student_nis'] ?></td>
           </tr>
           <tr>
             <td>Nama Siswa</td>

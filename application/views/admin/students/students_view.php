@@ -21,7 +21,7 @@
             <td><?php echo $student['class_level'].' '.$student['class_name']; ?></td>
           </tr>
           <tr>
-            <td>NIP Siswa</td>
+            <td>NIS Siswa</td>
             <td>:</td>
             <td><?php echo $student['student_nip'] ?></td>
           </tr>

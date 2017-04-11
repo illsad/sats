@@ -17,7 +17,7 @@
           <thead>
             <tr>
               <th class="controls" align="center">NAMA SISWA</th>
-              <th class="controls" align="center">NIP SISWA</th>
+              <th class="controls" align="center">NIS SISWA</th>
               <th class="controls" align="center">KELAS</th>
               <th class="controls" align="center">AKSI</th>
             </tr>

@@ -17,7 +17,7 @@
             <tr>
               <th class="controls" align="center">TANGGAL</th>
               <th class="controls" align="center">NAMA SISWA</th>
-              <th class="controls" align="center">NIP</th>
+              <th class="controls" align="center">NIS</th>
               <th class="controls" align="center">KETERANGAN</th>
               <th class="controls" align="center">AKSI</th>
             </tr>

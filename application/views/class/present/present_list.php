@@ -62,7 +62,7 @@
                 <thead>
                   <tr>
                     <th class="controls" align="center">NAMA SISWA</th>
-                    <th class="controls" align="center">NIP</th>
+                    <th class="controls" align="center">NIS</th>
                     <th class="controls" align="center">KELAS</th>
                     <th class="controls" align="center">IZIN</th>
                     <th class="controls" align="center">SAKIT</th>
@@ -101,7 +101,7 @@
                       <tr>
                         <td><a href="<?php echo site_url('class/students/detail/'.$key['student_id']) ?>">
                           <b><?php echo $key['student_full_name'] ?></b></a></td>
-                          <td><?php echo $key['student_nip'] ?></td>
+                          <td><?php echo $key['student_nis'] ?></td>
                           <td><?php echo $key['class_level'].' '.$key['class_name'] ?></td>
                           <td><?php echo $i ?></td>
                           <td><?php echo $s ?></td>
@@ -141,8 +141,8 @@
             </div>
             <div class="modal-body">
               <div class="form-group">
-                <label >NIP *</label>
-                <input name="student_nip" required="" placeholder="NIP" type="text" class="form-control">
+                <label >NIS *</label>
+                <input name="student_nis" required="" placeholder="NIS" type="text" class="form-control">
               </div>
               <div class="form-group">
                 <label >Nama *</label>

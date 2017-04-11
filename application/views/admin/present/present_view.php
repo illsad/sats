@@ -26,7 +26,7 @@
             <td><?php echo $present['student_full_name'] ?></td>
           </tr>
           <tr>
-            <td>NIP</td>
+            <td>NIS</td>
             <td>:</td>
             <td><?php echo $present['student_nip'] ?></td>
           </tr>

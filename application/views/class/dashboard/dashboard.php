@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th class="controls" align="center">NO</th>
-                <th class="controls" align="center">NIP</th>
+                <th class="controls" align="center">NIS</th>
                 <th class="controls" align="center">NAMA</th>
                 <th class="controls" align="center">KETERANGAN <span ng-show="animate" class="fa fa-spin fa-spinner"></span></th>
             </tr>
@@ -27,7 +27,7 @@
         <tbody>
           <tr ng-repeat="item in presents">
               <td>{{$index + 1}}</td>
-              <td>{{item.student_nip}}</td>
+              <td>{{item.student_nis}}</td>
               <td>{{item.student_full_name}}</td>
               <td>
               <select class="form-control" ng-class="[item.present_type]" ng-model="presentInput" ng-init="presentInput = item.present_type" ng-change="inputType(presentInput, item.present_id)">

@@ -1,10 +1,10 @@
 <?php
 if (isset($student)) {
-  $NipValue = $student['student_nip'];
+  $NipValue = $student['student_nis'];
   $NameValue = $student['student_full_name'];
   $PhoneValue = $student['student_phone'];
 } else {
-  $NipValue = set_value('student_nip');
+  $NipValue = set_value('student_nis');
   $NameValue = set_value('student_full_name');
   $PhoneValue = set_value('student_phone');
 }
@@ -25,7 +25,7 @@ if (isset($student)) {
         <?php endif; ?>
         <div class="form-group">
           <label >NIS *</label>
-          <input name="student_nip" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NipValue; ?>">
+          <input name="student_nis" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NipValue; ?>">
         </div>
         <div class="form-group">
           <label >Nama *</label>

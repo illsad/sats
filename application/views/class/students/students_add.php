@@ -1,12 +1,27 @@
 <?php
+$this->load->view('admin/datepicker');
 if (isset($student)) {
-  $NipValue = $student['student_nis'];
+  $NisValue = $student['student_nis'];
   $NameValue = $student['student_full_name'];
   $PhoneValue = $student['student_phone'];
+  $ClassValue = $student['classes_class_id'];
+  $ReligionValue = $student['student_religion'];
+  $GenderValue = $student['student_gender'];
+  $DobValue = $student['student_dob'];
+  $PobValue= $student['student_pob'];
+  $AddressValue = $student['student_address'];
+
 } else {
-  $NipValue = set_value('student_nis');
+  $NisValue = set_value('student_nis'); 
   $NameValue = set_value('student_full_name');
   $PhoneValue = set_value('student_phone');
+  $ClassValue = set_value('classes_class_id');
+  $ReligionValue = set_value('student_religion');
+  $GenderValue = set_value('student_gender');
+  $DobValue = set_value('student_dob');
+  $PobValue= set_value('student_pob');
+  $AddressValue = set_value('student_address');
+  $ClassValue = set_value('classes_class_id');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -25,16 +40,51 @@ if (isset($student)) {
         <?php endif; ?>
         <div class="form-group">
           <label >NIS *</label>
-          <input name="student_nis" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NipValue; ?>">
+          <input name="student_nis" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NisValue; ?>">
         </div>
         <div class="form-group">
           <label >Nama *</label>
           <input name="student_full_name" required="" placeholder="Nama" type="text" class="form-control" value="<?php echo $NameValue; ?>">
         </div>
-        <div class="form-group">
-          <label >No. Telepon</label>
-          <input name="student_phone" required="" placeholder="Phone" type="number" class="form-control" value="<?php echo $PhoneValue; ?>">
+        <div class="row">
+          <div class="col-md-4 col-xs-12">
+            <label >Tempat Lahir *</label>
+            <input name="student_pob" required="" placeholder="Tempat Lahir" type="text" class="form-control" value="<?php echo $PobValue; ?>">
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <label >Tanggal Lahir *</label>
+            <input name="student_dob" required="" placeholder="Tanggal Lahir" type="text" class="datepicker form-control f_mr_top" value="<?php echo $DobValue; ?>">
+          </div>
+          <div class="col-md-4 col-xs-12">
+            <label >Gender</label>
+            <div class="radio">
+              <label class="radio-inline">
+                <input type="radio" name="student_gender" value="L" <?php echo ($GenderValue == 'L') ? 'checked' : '' ?>> Laki-laki
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="student_gender" value="P" <?php echo ($GenderValue == 'P') ? 'checked' : '' ?>> Perempuan
+              </label>
+            </div>
+          </div>
         </div>
+        <div class="form-group">
+          <label >Agama *</label>
+          <select name="student_religion" class="form-control">
+            <option value="">- Pilih Agama -</option>
+            <option value="Islam" <?php echo ($ReligionValue == 'Islam') ? 'selected' : '' ?>>Islam</option>
+            <option value="Kristen" <?php echo ($ReligionValue == 'Kristen') ? 'selected' : '' ?>>Kristen</option>
+            <option value="Katolik" <?php echo ($ReligionValue == 'Katolik') ? 'selected' : '' ?>>Katolik</option>
+            <option value="Hindu" <?php echo ($ReligionValue == 'Hindu') ? 'selected' : '' ?>>Hindu</option>
+            <option value="Budha" <?php echo ($ReligionValue == 'Budha') ? 'selected' : '' ?>>Budha</option>
+            <option value="Kongucu" <?php echo ($ReligionValue == 'Kongucu') ? 'selected' : '' ?>>Konghucu</option>
+          </select>
+        </div>
+        <div calss="form-group">
+         <label>Telephone </label>
+         <input name="student_phone" placeholder="Telephone" type="text" class="form-control" value="<?php echo $PhoneValue; ?>">
+       </div>
+        </div>
+        <div class="form-group">
         <p class="text text-muted"><i>*) Field Wajib Diisi</i></p>
       </div>
       <div class="col-sm-9 col-md-3">

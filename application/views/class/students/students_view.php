@@ -31,6 +31,11 @@
             <td><?php echo $student['student_full_name'] ?></td>
           </tr>
           <tr>
+            <td>Tempat, Tanggal Lahir</td>
+            <td>:</td>
+            <td><?php echo $student['student_pob'].', '.pretty_date($student['student_dob'], 'd M Y', false) ?></td>
+          </tr>
+          <tr>
             <td>No. Telepon</td>
             <td>:</td>
             <td>0<?php echo $student['student_phone'] ?></td>

@@ -84,10 +84,15 @@ class Students extends CI_Controller {
                 $params['student_is_resign'] = false;
             }
 
+            $params['student_nis'] = $this->input->post('student_nis');
             $params['student_last_update'] = date('Y-m-d H:i:s');
             $params['student_full_name'] = $this->input->post('student_full_name');
             $params['student_phone'] = $this->input->post('student_phone');
-            $params['student_nis'] = $this->input->post('student_nis');
+            $params['student_address'] = $this->input->post('student_address');
+            $params['student_pob'] = $this->input->post('student_pob');
+            $params['student_dob'] = $this->input->post('student_dob');
+            $params['student_gender'] = $this->input->post('student_gender');
+            $params['student_religion'] = $this->input->post('student_religion');
             $params['classes_class_id'] = $this->session->userdata('class_id');
             $status = $this->Students_model->add($params);
 

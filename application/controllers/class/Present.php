@@ -52,7 +52,7 @@ class Present extends CI_Controller {
             $row = array();
             $row[] = pretty_date($key->present_date, 'l, d-m-Y', false);
             $row[] = $key->student_full_name;
-            $row[] = $key->student_nip;
+            $row[] = $key->student_nis;
             $row[] = $key->present_type;
 
             //add html for action

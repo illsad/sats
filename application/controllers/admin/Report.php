@@ -74,10 +74,12 @@ class Report extends CI_Controller {
         $data['q'] = $q;
 
         $params = array();
+        $class = array();
         
         // Class
         if (isset($q['c']) && !empty($q['c']) && $q['c'] != '') {
             $params['class'] = $q['c'];
+            $class = $q['c'];
         }
 
         // Date start
@@ -91,7 +93,7 @@ class Report extends CI_Controller {
         }
         
         $reports = $this->Present_model->get($params);
-        $students = $this->Students_model->get(array('class' => $params['class']));
+        $students = $this->Students_model->get($class);
 
         $this->load->library("PHPExcel");
         $objXLS   = new PHPExcel();
@@ -100,7 +102,7 @@ class Report extends CI_Controller {
         $no       = 1;
 
         $objSheet->setCellValue('A1', 'NO');
-        $objSheet->setCellValue('B1', 'NIP');
+        $objSheet->setCellValue('B1', 'NIS');
         $objSheet->setCellValue('C1', 'NAMA SISWA');
         $objSheet->setCellValue('D1', 'KELAS');
         $objSheet->setCellValue('E1', 'IZIN');

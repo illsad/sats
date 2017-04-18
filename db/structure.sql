@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS `user_role` (
   `role_id` INT(11) NOT NULL AUTO_INCREMENT,
   `role_name` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`role_id`))
-ENGINE = InnoDB
 AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = latin1;
 
@@ -44,7 +43,6 @@ CREATE TABLE IF NOT EXISTS `user` (
     REFERENCES `user_role` (`role_id`)
     ON DELETE SET NULL
     ON UPDATE SET NULL)
-ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
@@ -66,7 +64,6 @@ CREATE TABLE IF NOT EXISTS `activity_log` (
     REFERENCES `user` (`user_id`)
     ON DELETE SET NULL
     ON UPDATE SET NULL)
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -80,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   `data` BLOB NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `ci_sessions_timestamp` (`timestamp` ASC))
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -97,7 +93,6 @@ CREATE TABLE IF NOT EXISTS `mediamanager` (
   `upload_at` DATETIME NULL DEFAULT NULL,
   `album_id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -109,7 +104,6 @@ CREATE TABLE IF NOT EXISTS `mediamanager_album` (
   `label` VARCHAR(255) NULL DEFAULT NULL,
   `upload_at` DATETIME NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
@@ -119,8 +113,7 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `posts_category` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
   `category_name` VARCHAR(100) NULL,
-  PRIMARY KEY (`category_id`))
-ENGINE = InnoDB;
+  PRIMARY KEY (`category_id`));
 
 
 -- -----------------------------------------------------
@@ -149,8 +142,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
     FOREIGN KEY (`user_user_id`)
     REFERENCES `user` (`user_id`)
     ON DELETE SET NULL
-    ON UPDATE SET NULL)
-ENGINE = InnoDB;
+    ON UPDATE SET NULL);
 
 
 -- -----------------------------------------------------
@@ -177,8 +169,7 @@ CREATE TABLE IF NOT EXISTS `teachers` (
     FOREIGN KEY (`user_user_id`)
     REFERENCES `user` (`user_id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -208,8 +199,7 @@ CREATE TABLE IF NOT EXISTS `classes` (
     FOREIGN KEY (`teachers_teacher_id`)
     REFERENCES `teachers` (`teacher_id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -236,8 +226,7 @@ CREATE TABLE IF NOT EXISTS `students` (
     FOREIGN KEY (`classes_class_id`)
     REFERENCES `classes` (`class_id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -273,8 +262,7 @@ CREATE TABLE IF NOT EXISTS `present` (
     FOREIGN KEY (`classes_class_id`)
     REFERENCES `classes` (`class_id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

@@ -8,7 +8,7 @@
     </ul>
     <div class="clearfix"></div>
 </div>
-<div class="x_content">
+<div class="x_content table-responsive">
     <div ng-hide="presents.length > 0" class="alert alert-warning">
         <center>
             <h5 class="text text-warning">Hari ini belum input absensi!</h5>
@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th class="controls" align="center">NO</th>
-                <th class="controls" align="center">NIS</th>
+                <th class="controls hidden-xs" align="center">NIS</th>
                 <th class="controls" align="center">NAMA</th>
                 <th class="controls" align="center">KETERANGAN <span ng-show="animate" class="fa fa-spin fa-spinner"></span></th>
             </tr>
@@ -27,7 +27,7 @@
         <tbody>
           <tr ng-repeat="item in presents">
               <td>{{$index + 1}}</td>
-              <td>{{item.student_nis}}</td>
+              <td class="hidden-xs">{{item.student_nis}}</td>
               <td>{{item.student_full_name}}</td>
               <td>
               <select class="form-control" ng-class="[item.present_type]" ng-model="presentInput" ng-init="presentInput = item.present_type" ng-change="inputType(presentInput, item.present_id)">

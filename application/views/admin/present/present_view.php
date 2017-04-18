@@ -28,7 +28,7 @@
           <tr>
             <td>NIS</td>
             <td>:</td>
-            <td><?php echo $present['student_nip'] ?></td>
+            <td><?php echo $present['student_nis'] ?></td>
           </tr>
           <tr>
             <td>Keterangan</td>

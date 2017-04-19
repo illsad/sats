@@ -84,10 +84,6 @@ if (isset($student)) {
           <input name="student_dob" required="" placeholder="Tanggal Lahir" class="form-control datepicker" value="<?php echo $DobValue; ?>">
         </div>
         <div class="form-group">
-          <label >Alamat</label>
-          <input name="student_address" required="" placeholder="Alamat" type="text" class="form-control" value="<?php echo $AddressValue; ?>">
-        </div>
-        <div class="form-group">
           <label >Agama *</label>
           <select name="student_religion" class="form-control">
             <option value="">- Pilih Agama -</option>

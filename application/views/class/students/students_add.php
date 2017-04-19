@@ -40,7 +40,7 @@ if (isset($student)) {
         <?php endif; ?>
         <div class="form-group">
           <label >NIS *</label>
-          <input name="student_nis" required="" placeholder="NIS" type="text" class="form-control" value="<?php echo $NisValue; ?>">
+          <input name="student_nis" required="" placeholder="NIS" type="numeric" class="form-control" value="<?php echo $NisValue; ?>">
         </div>
         <div class="form-group">
           <label >Nama *</label>
@@ -81,7 +81,7 @@ if (isset($student)) {
         </div>
         <div calss="form-group">
          <label>Telephone </label>
-         <input name="student_phone" placeholder="Telephone" type="text" class="form-control" value="<?php echo $PhoneValue; ?>">
+         <input name="student_phone" placeholder="Telephone" type="numeric" maxlength="13" class="form-control" value="<?php echo $PhoneValue; ?>">
        </div>
         </div>
         <div class="form-group">

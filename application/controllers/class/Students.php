@@ -70,7 +70,6 @@ class Students extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('student_full_name', 'Nama Siswa', 'trim|required|xss_clean');
         $this->form_validation->set_rules('student_nis', 'NIS Siswa', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('student_phone', 'No Telepon Siswa', 'trim|required|xss_clean');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 

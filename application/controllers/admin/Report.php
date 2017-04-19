@@ -79,7 +79,7 @@ class Report extends CI_Controller {
         // Class
         if (isset($q['c']) && !empty($q['c']) && $q['c'] != '') {
             $params['class'] = $q['c'];
-            $class = $q['c'];
+            $class['class'] = $q['c'];
         }
 
         // Date start

@@ -23,7 +23,7 @@
         </select>
       </div>
       <div class="col-md-2">
-        <select name="c" ng-model="class_id" ng-disabled="classes.length < 1" class="form-control">
+        <select name="c" ng-model="class_id" ng-readonly="classes.length < 1" class="form-control">
           <option value="">- Pilih Kelas -</option>
           <option value="{{class.class_id}}" ng-repeat="class in classes">{{class.class_level}} {{class.class_name}}</option>
         </select>

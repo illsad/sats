@@ -105,7 +105,7 @@ class Teachers extends CI_Controller {
             $this->Activity_log_model->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $id,
+                        'user_id' => $$this->session->userdata('user_id'),
                         'log_module' => 'Guru',
                         'log_action' => 'Hapus',
                         'log_info' => 'ID:' . $id . ';Title:' . $this->input->post('del_name')

@@ -30,12 +30,16 @@
               <td class="hidden-xs">{{item.student_nis}}</td>
               <td>{{item.student_full_name}}</td>
               <td>
+              <?php if( (date('H') >= 7) && (date('H') < 9) ){ ?>
               <select class="form-control" ng-class="[item.present_type]" ng-model="presentInput" ng-init="presentInput = item.present_type" ng-change="inputType(presentInput, item.present_id)">
                 <option value="Hadir">Hadir</option>
                 <option value="Izin">Izin</option>
                 <option value="Sakit">Sakit</option>
                 <option value="Alfa">Alfa</option>
               </select>
+              <?php }else{ ?>
+              <span class="btn btn-default btn-xs" disabled="">{{item.present_type}}</span>
+              <?php } ?>
               </td>
           </tr>
       </tbody>

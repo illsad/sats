@@ -26,8 +26,5 @@
         </table>
       </div>
     </div>
-    <div>
-      <?php echo $this->pagination->create_links(); ?>
-    </div>
   </div>
 </div>

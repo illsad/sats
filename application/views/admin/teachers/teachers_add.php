@@ -37,7 +37,7 @@ if (isset($teacher)) {
           <input type="hidden" name="teacher_id" value="<?php echo $teacher['teacher_id']; ?>" />
         <?php endif; ?>
         <div class="form-group"> 
-          <label >NIK *</label>
+          <label >NIK </label>
           <input name="teacher_nik" placeholder="NIK" type="numeric" class="form-control" value="<?php echo $NikValue; ?>">
         </div>
         <div class="form-group">

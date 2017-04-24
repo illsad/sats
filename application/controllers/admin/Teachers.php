@@ -42,7 +42,6 @@ class Teachers extends CI_Controller {
     public function add($id = NULL) {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('teacher_name', 'Nama Guru', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('teacher_nik', 'NIK Guru', 'trim|required|xss_clean');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
@@ -162,7 +161,7 @@ class Teachers extends CI_Controller {
                'teacher_gender' => trim($exp[3]),
                'teacher_pob' => trim($exp[4]),
                'teacher_dob' => trim($exp[5]),               
-               'teacher_religion' => trim($exp[6]),               
+               'teacher_religion' => trim(ucwords($exp[6])),               
                'teacher_address' => trim($exp[7]),
                'teacher_phone' => trim($exp[8])
             ];

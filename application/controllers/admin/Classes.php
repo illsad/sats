@@ -219,11 +219,11 @@ class Classes extends CI_Controller {
       $nis = trim($exp[0]); 
       $arr = [ 
       'student_nis' => trim($exp[0]),
-      'student_full_name' => trim($exp[1]),
+      'student_full_name' => trim(ucwords($exp[1])),
       'student_gender' => trim($exp[2]),
       'student_pob' => trim($exp[3]),
       'student_dob' => trim($exp[4]),
-      'student_religion' => trim($exp[5]),               
+      'student_religion' => trim(ucwords($exp[5])),               
       'student_address' => trim($exp[6]),               
       'student_phone' => trim($exp[7]),
       'classes_class_id' => $id

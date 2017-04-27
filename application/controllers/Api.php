@@ -64,22 +64,28 @@ class Api extends CI_Controller {
         $this->load->model('Present_model');
         $this->load->model('Students_model');
         $id = $this->input->post('class_id');
-        $students = $this->Students_model->get(array('class_id'=>$id));
 
-        $params['user_user_id'] = $this->session->userdata('user_id');
-        $params['present_year'] = date('Y');
-        $params['present_month'] = date('m');
-        $params['present_date'] = date('Y-m-d');
-        $params['present_type'] = 'Hadir';
-        $params['classes_class_id'] = $id;
-        $params['present_input_date'] = date('Y-m-d H:i');
-        $params['present_last_update'] = date('Y-m-d H:i');
-        $present_id = array();
-        foreach ($students as $row) {
-            $params['students_student_id'] = $row['student_id'];
-            $present_id[] = $this->Present_model->add($params);
+        $check = $this->Present_model->get(array('class' => $id, 'date' => date('Y-m-d')));
+        if(count($check) > 0){
+            $res = '';
+        }else{
+            $students = $this->Students_model->get(array('class_id'=>$id));
+
+            $params['user_user_id'] = $this->session->userdata('user_id');
+            $params['present_year'] = date('Y');
+            $params['present_month'] = date('m');
+            $params['present_date'] = date('Y-m-d');
+            $params['present_type'] = 'Hadir';
+            $params['classes_class_id'] = $id;
+            $params['present_input_date'] = date('Y-m-d H:i');
+            $params['present_last_update'] = date('Y-m-d H:i');
+            $present_id = array();
+            foreach ($students as $row) {
+                $params['students_student_id'] = $row['student_id'];
+                $present_id[] = $this->Present_model->add($params);
+            }
+            $res = $present_id;
         }
-        $res = $present_id;
 
         $this->output
         ->set_content_type('application/json')
